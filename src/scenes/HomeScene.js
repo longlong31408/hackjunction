@@ -42,6 +42,7 @@ export default class HomeScene extends Phaser.Scene {
 
   idle() {
     const cat = this.cat;
+    if (!cat) return;
     this.tweens.killTweensOf(cat);
     cat.setPosition(CAT.x, CAT.y).setScale(1).setAngle(0).setFlipX(false);
     const key = this.override ? { listen: 'catListen', eat: 'catEat', happy: 'catHappy' }[this.override] : 'cat' + this.energy;

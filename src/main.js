@@ -14,6 +14,7 @@ import { startOnboarding } from './ui/onboarding.js';
 import { startFace } from './sensing/face.js';
 import { initMic, startRecording, stopRecording, isRecording } from './sensing/mic.js';
 import { load, save } from './storage.js';
+import { installPrivacy, sensesPaused } from './ui/privacy.js';
 
 const $ = (id) => document.getElementById(id);
 export let saved = load();
@@ -107,6 +108,7 @@ talk.addEventListener('pointerdown', async (e) => {
   e.preventDefault();
   pointerDown = true;
   if (isRecording()) return finishTalk();               // tap-to-send (toggle mode)
+  if (sensesPaused()) return openTypeBox('Camera and mic are paused (▶️ to resume). You can type to me instead.');
   if (!saved.settings.mic) return openTypeBox('Your microphone is off — type to me instead.');
   if (aiFailed) return openTypeBox('My listening ears didn\'t load, but I can read!');
   if (!aiReady) { sayCtx('waking'); return; }
@@ -204,6 +206,8 @@ export const effects = {
   reassure: () => sayCtx('reassure'),
 };
 export function registerEffect(name, fn) { effects[name] = fn; }
+const settingsExtras = [];   // features add their own rows to ⚙️ Settings
+export function addSettings(fn) { settingsExtras.push(fn); }
 
 export function lead(place) {
   if (place === 'home') { showScene('Home'); return say(pickLine('arrive', state, 'cat', 'home')); }
@@ -237,7 +241,8 @@ game.events.on('catTapped', () => { if (!bubbleOpen()) sayCtx('pet'); });
 // ------------------------------------------------------------------ camera (face = hint)
 let stopFace = null, faceTimer = 0;
 export async function startCamera() {
-  if (!saved.settings.camera || stopFace) return;
+  saved = load();
+  if (!saved.settings.camera || stopFace || sensesPaused()) return;
   try {
     stopFace = await startFace($('cam'), addFace);
     setSenses({ cam: 'on' });
@@ -285,6 +290,17 @@ function openDebug() {
   });
 }
 
+// ------------------------------------------------------------------ comfort settings
+export function applySettings() {
+  saved = load();
+  const s = saved.settings;
+  const osReduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.toggle('reduce', !!s.reduceMotion || !!osReduce);
+  document.documentElement.classList.toggle('big-text', !!s.bigText);
+  home()?.idle?.();
+}
+applySettings();
+
 // ------------------------------------------------------------------ start
 export function begin() {
   $('catName').textContent = saved.name;
@@ -295,6 +311,7 @@ export function begin() {
   startCamera();
   if (!saved.settings.mic) setSenses({ mic: 'off' });
   startDirector((line) => say(line), () => bubbleOpen() || panelOpen() || helpOpen() || isRecording());
+  installPrivacy({ startCamera, stopCamera, sayCtx, onSettingsChange: applySettings, settingsExtras: () => settingsExtras.flatMap((f) => f()) });
   game.events.emit('begin');
 }
 
