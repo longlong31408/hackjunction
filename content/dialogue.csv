@@ -101,7 +101,7 @@ p3,cat,pet,,,,Again! Again!,wiggle,,
 p4,cat,pet,,,,Mrrp?,tilt,,
 p5,cat,pet,,,,You found the perfect spot behind my ear.,purr,,
 w0,cat,worry_ask,,,,Tell me a worry and I'll eat it. I'm very hungry for worries.,perk,,
-w1,cat,worry_eaten,,,,"Nom. That one's gone now, at least for a while.",wiggle,,
+w1,cat,worry_eaten,,,,"Nom. That one's gone now, for a while anyway.",wiggle,,
 w2,cat,worry_eaten,,,,Crunchy. I'll take care of that one. You can put it down.,purr,,
 w3,cat,worry_eaten,,,,"Swallowed it whole. Nothing saved, nothing kept.",wiggle,,
 st1,cat,stay,,,,I'm right here. Let's breathe slowly together.,curl,,
@@ -116,35 +116,151 @@ th3,cat,thanks,,,,Thanks. You know you best.,nod,,
 mi1,cat,missed,,,,"I didn't quite catch that. Try again, or type to me ⌨️",tilt,,
 mi2,cat,missed,,,,Mrrp? My ears missed it. Want to type instead? ⌨️,tilt,,
 wk1,cat,waking,,,,I'm still waking up my listening ears. You can type to me meanwhile ⌨️,curl,,
-rt1,cat,reply,,,,Really {word}… that sounds draining. You don't have to do anything right now.,curl,Rest with me 💤=rest|Tell you more 🎙️=talk,tired
-rt2,cat,reply,,,,"When you're this {word}, even small things take a lot. I'm glad you still came to see me.",lean,,tired
-rt3,cat,reply,,,,Let's make it a soft day. Want to lie in the meadow with me and do absolutely nothing?,curl,Rest in the meadow ☁️=go:meadow|Rest here 💤=rest,tired
-rt4,cat,reply,,,,"Being {word} is your body asking for kindness. Maybe a sip of water, then a rest?",lean,Rest with me 💤=rest|Water together 💧=tasks,tired
-rt5,cat,reply,,,,"I'll curl up right next to you. We can be {word} together, quietly.",curl,Rest with me 💤=rest|Tell you more 🎙️=talk,tired
-rs1,cat,reply,,,,I'm so sorry you're feeling {word}. I'm right here next to you.,lean,Tell you about it 🎙️=talk|Just sit with me=rest,sad
-rs2,cat,reply,,,,"That sounds really hard. Do you want to tell me what happened, or just sit together for a bit?",lean,Tell you 🎙️=talk|Sit together=rest,sad
-rs3,cat,reply,,,,Feeling {word} makes sense sometimes. You don't have to cheer up for me.,curl,,sad
-rs4,cat,reply,,,,I'm staying close. Want to listen to the waves with Old Turtle? He's very gentle.,lean,Go with you 🐢=go:beach|Stay here=rest,sad
-rl1,cat,reply,,,,"Feeling {word} really hurts. I'm glad you told me, and I'm here with you right now.",lean,,lonely
-rl2,cat,reply,,,,"You're not on your own in this moment. I'm right here, purring quietly next to you.",purr,Tell you more 🎙️=talk|Just stay=rest,lonely
-rl3,cat,reply,,,,Is there one person you could send a tiny 'hi' to later? Only if it feels okay.,tilt,Maybe later=ok|Tell you about it 🎙️=talk,lonely
-rl4,cat,reply,,,,Want some company at the beach? Old Turtle loves visitors.,lean,Visit Turtle 🐢=go:beach|Stay with you=rest,lonely
-rx1,cat,reply,,,,That sounds like a lot to carry at once. Want to breathe slowly with me for a minute?,lean,Breathe with you 🫁=breathe|Tell you more 🎙️=talk,stressed
-rx2,cat,reply,,,,"When everything feels {word}, it helps to put one thing down. Want to feed me that worry?",lean,Feed you the worry 😋=worry|Not right now=ok,stressed
-rx3,cat,reply,,,,You don't have to fix it all today. Let's just get through the next few minutes together.,curl,,stressed
-rx4,cat,reply,,,,"Being {word} is so tiring. Tell me the biggest part, if you want.",lean,Tell you 🎙️=talk|Breathe first 🫁=breathe,stressed
-ra1,cat,reply,,,,That sounds really frustrating. It's okay to feel {word}.,lean,Tell you what happened 🎙️=talk|Let it go for now=ok,angry
-ra2,cat,reply,,,,That would make my tail puff up too. Want to tell me what happened?,tilt,Tell you 🎙️=talk|Not now=ok,angry
-ra3,cat,reply,,,,Feeling {word} makes sense. Want to walk it off at the beach with me?,perk,Walk with you 🏖️=go:beach|Stay here=ok,angry
-ra4,cat,reply,,,,Let's take one slow breath before anything else. I'll do it with you.,curl,Breathe with you 🫁=breathe,angry
-rb1,cat,reply,,,,Bored? I know a beach with a very chatty turtle.,perk,Show me 🏖️=go:beach|Stay here=ok,bored
-rb2,cat,reply,,,,"Ooh, I have an idea: three tiny tasks, then a nap.",wiggle,Show me 🧶=tasks|Nah=ok,bored
-rb3,cat,reply,,,,Boredom is your brain asking for something new. Want to explore the meadow?,perk,Explore ☁️=go:meadow|Stay here=ok,bored
-rb4,cat,reply,,,,I could chase my tail for you. Or we could go exploring?,wiggle,"Exploring 🗺️=go:meadow|Tail, please=ok",bored
-rh1,cat,reply,,,,"Yay, that's so good to hear! Tell me the best part?",perk,Tell you 🎙️=talk|Later=ok,happy
-rh2,cat,reply,,,,That made my whiskers wiggle. I love hearing that.,wiggle,,happy
-rh3,cat,reply,,,,Look at you! Want to celebrate with a walk to the beach?,perk,Let's go 🏖️=go:beach|Stay cozy=ok,happy
-rh4,cat,reply,,,,"Happy you, happy cat. I'm purring very loudly.",purr,,happy
 rest1,cat,rest,,,,Okay. I'll curl up right here and keep you warm. 💤,curl,,
 rest2,cat,rest,,,,"Shh. Nothing to do now. Just rest, I'll stay close.",curl,,
 rest3,cat,rest,,,,Resting together. I won't ask you anything for a while.,curl,,
+rf_tired1,cat,reflect,,,,"It sounds like you're really {word}, like there's nothing left in the tank.",lean,,tired
+rf_tired2,cat,reflect,,,,Being {word} like that makes everything feel heavier.,lean,,tired
+rf_tired3,cat,reflect,,,,So you're {word}. Your body and your mind both sound like they need a break.,lean,,tired
+rf_tired4,cat,reflect,,,,"{word}, and still here talking to me. That sounds like a long day.",lean,,tired
+rf_sad1,cat,reflect,,,,It sounds like you're feeling really {word} right now.,lean,,sad
+rf_sad2,cat,reflect,,,,So there's a heaviness today. Feeling {word} can make everything look grey.,lean,,sad
+rf_sad3,cat,reflect,,,,You're feeling {word}. That's a hard place to be.,lean,,sad
+rf_sad4,cat,reflect,,,,It sounds like something has been hurting.,lean,,sad
+rf_lonely1,cat,reflect,,,,"It sounds like you're feeling {word}, like no one is really there with you.",lean,,lonely
+rf_lonely2,cat,reflect,,,,"Feeling {word} can hurt in a quiet, heavy way.",lean,,lonely
+rf_lonely3,cat,reflect,,,,So you've been feeling {word}. That's a really hard feeling to sit with.,lean,,lonely
+rf_stressed1,cat,reflect,,,,"It sounds like you're feeling {word}, like there's too much at once.",lean,,stressed
+rf_stressed2,cat,reflect,,,,So everything is piling up and you're feeling {word}.,lean,,stressed
+rf_stressed3,cat,reflect,,,,Feeling {word} like that can make it hard to even think straight.,lean,,stressed
+rf_angry1,cat,reflect,,,,It sounds like you're really {word}.,lean,,angry
+rf_angry2,cat,reflect,,,,"Something got under your skin, and you're feeling {word}.",lean,,angry
+rf_angry3,cat,reflect,,,,So you're {word}. It sounds like something didn't feel fair.,lean,,angry
+rf_bored1,cat,reflect,,,,"So you're {word}, like the day is a bit empty.",wiggle,,bored
+rf_bored2,cat,reflect,,,,It sounds like you're {word} and looking for something to do.,wiggle,,bored
+rf_grief1,cat,reflect,,,,It sounds like you're {word}. Losing someone leaves such a big space.,lean,,grief
+rf_grief2,cat,reflect,,,,You're {word}. That kind of pain doesn't follow a schedule.,lean,,grief
+rf_grief3,cat,reflect,,,,So you're carrying a loss right now. That's one of the heaviest things there is.,lean,,grief
+rf_shame1,cat,reflect,,,,It sounds like you're feeling {word} right now.,lean,,shame
+rf_shame2,cat,reflect,,,,So you're being really hard on yourself.,lean,,shame
+rf_shame3,cat,reflect,,,,"Feeling {word} can be so painful, like it's all on you.",lean,,shame
+rf_happy1,cat,reflect,,,,You sound {word}! I can almost see your whiskers.,wiggle,,happy
+rf_happy2,cat,reflect,,,,"Oh, it sounds like things feel {word} today.",wiggle,,happy
+rf_happy3,cat,reflect,,,,So today feels {word}. I love hearing that.,wiggle,,happy
+ra_work1,cat,reflect_area,,,,It sounds like work has been taking a lot out of you.,lean,,work
+ra_work2,cat,reflect_area,,,,Work sounds really demanding right now.,lean,,work
+ra_school1,cat,reflect_area,,,,It sounds like school has been a lot lately.,lean,,school
+ra_school2,cat,reflect_area,,,,School sounds like it's asking a lot of you right now.,lean,,school
+ra_family1,cat,reflect_area,,,,It sounds like things at home are weighing on you.,lean,,family
+ra_family2,cat,reflect_area,,,,Family stuff can be so complicated.,lean,,family
+ra_relationship1,cat,reflect_area,,,,It sounds like things in your relationship are hard right now.,lean,,relationship
+ra_relationship2,cat,reflect_area,,,,Relationships can hurt in a very particular way.,lean,,relationship
+ra_friends1,cat,reflect_area,,,,It sounds like something with your friends is on your mind.,lean,,friends
+ra_friends2,cat,reflect_area,,,,Friend stuff can be tricky and tender.,lean,,friends
+ra_sleep1,cat,reflect_area,,,,It sounds like sleep hasn't been kind to you.,lean,,sleep
+ra_sleep2,cat,reflect_area,,,,Not sleeping well makes everything harder.,lean,,sleep
+ra_health1,cat,reflect_area,,,,It sounds like your body hasn't been feeling well.,lean,,health
+ra_health2,cat,reflect_area,,,,Not feeling well physically wears everything else down too.,lean,,health
+ra_money1,cat,reflect_area,,,,It sounds like money worries are sitting heavy.,lean,,money
+ra_money2,cat,reflect_area,,,,"Money stress follows you everywhere, doesn't it.",lean,,money
+va_area1,cat,validate,,,,"No wonder you're feeling {word}, with {area} going on.",lean,,area
+va_area2,cat,validate,,,,"Feeling {word} makes a lot of sense, with everything around {area}.",lean,,area
+va_area3,cat,validate,,,,Anyone would feel {word} with {area} like that.,lean,,area
+va_norm1,cat,validate,,,,That makes a lot of sense.,nod,,normalize
+va_norm2,cat,validate,,,,Anyone would feel that way.,nod,,normalize
+va_norm3,cat,validate,,,,It's okay to feel like this.,nod,,normalize
+va_norm4,cat,validate,,,,That's a really human way to feel.,nod,,normalize
+va_long1,cat,validate,,,,"And it sounds like it's been going on for a while, which makes it even heavier.",lean,,lasting
+va_long2,cat,validate,,,,"When it's been like this for a while, it really wears you down.",lean,,lasting
+as_tired1,cat,ask,,,,What's been taking the most energy lately?,tilt,,tired
+as_tired2,cat,ask,,,,How have you been sleeping?,tilt,,tired
+as_tired3,cat,ask,,,,What would real rest look like for you today?,tilt,,tired
+as_sad1,cat,ask,,,,What's been weighing on you the most?,tilt,,sad
+as_sad2,cat,ask,,,,When did it start feeling like this?,tilt,,sad
+as_sad3,cat,ask,,,,Do you want to tell me a bit more about it?,tilt,,sad
+as_lonely1,cat,ask,,,,Who do you miss the most at the moment?,tilt,,lonely
+as_lonely2,cat,ask,,,,"What kind of company would feel good right now: talking, or just someone nearby?",tilt,,lonely
+as_stressed1,cat,ask,,,,What feels like the biggest thing on your plate?,tilt,,stressed
+as_stressed2,cat,ask,,,,Which part worries you the most?,tilt,,stressed
+as_stressed3,cat,ask,,,,What would make the next hour a little easier?,tilt,,stressed
+as_angry1,cat,ask,,,,What happened?,tilt,,angry
+as_angry2,cat,ask,,,,What part of it bothers you the most?,tilt,,angry
+as_bored1,cat,ask,,,,What usually makes the day feel a bit brighter for you?,tilt,,bored
+as_bored2,cat,ask,,,,"If you could do anything right now, what would it be?",tilt,,bored
+as_grief1,cat,ask,,,,Would you like to tell me about them?,tilt,,grief
+as_grief2,cat,ask,,,,What do you miss the most?,tilt,,grief
+as_shame1,cat,ask,,,,What makes you feel that way about yourself?,tilt,,shame
+as_shame2,cat,ask,,,,What would you say to a friend who felt like this?,tilt,,shame
+as_happy1,cat,ask,,,,What made it so good?,tilt,,happy
+as_happy2,cat,ask,,,,Tell me the best part?,tilt,,happy
+as_open1,cat,ask,,,,What's been on your mind today?,tilt,,open
+as_open2,cat,ask,,,,"How has today been, really?",tilt,,open
+as_open3,cat,ask,,,,Want to tell me more?,tilt,,open
+aa_work,cat,ask_area,,,,What's been the hardest part about work?,tilt,,work
+aa_school,cat,ask_area,,,,What's the hardest part about school right now?,tilt,,school
+aa_family,cat,ask_area,,,,What's been happening at home?,tilt,,family
+aa_relationship,cat,ask_area,,,,Do you want to tell me what's going on between you two?,tilt,,relationship
+aa_friends,cat,ask_area,,,,What happened with your friends?,tilt,,friends
+aa_sleep,cat,ask_area,,,,What usually keeps you awake?,tilt,,sleep
+aa_health,cat,ask_area,,,,How is your body feeling right now?,tilt,,health
+aa_money,cat,ask_area,,,,What feels most urgent about it?,tilt,,money
+af_eff1,cat,affirm,,,,"You still did that, even feeling like this. That's not small.",purr,,effort
+af_eff2,cat,affirm,,,,That took real effort. I noticed.,purr,,effort
+af_eff3,cat,affirm,,,,"You kept going, even when it was hard. That counts.",purr,,effort
+af_share1,cat,affirm,,,,Thank you for trusting me with this.,purr,,sharing
+af_share2,cat,affirm,,,,I'm really glad you're telling me.,purr,,sharing
+af_share3,cat,affirm,,,,It takes courage to say this out loud.,purr,,sharing
+af_heard1,cat,affirm,,,,Thank you. I feel like I understand you a little better now.,purr,,heard
+af_heard2,cat,affirm,,,,Okay. Thank you for letting me listen.,purr,,heard
+su1,cat,summary,,,,Let me see if I've got it: {summary}. Did I get that right?,tilt,"Yes, that's it=summary_yes|Not quite=summary_no",
+su2,cat,summary,,,,So if I understand you: {summary}. Is that right?,tilt,Yes=summary_yes|Not quite=summary_no,
+sf1,cat,summary_fix,,,,Thank you for correcting me. What did I miss?,tilt,Tell you 🎙️=talk|Type it ⌨️=type,
+sf2,cat,summary_fix,,,,I'm sorry I didn't quite get it. Will you tell me again?,tilt,Tell you 🎙️=talk|Type it ⌨️=type,
+idk1,cat,idk,,,,That's okay. Sometimes it's hard to put into words. I'm here either way.,curl,,
+idk2,cat,idk,,,,You don't have to know. We can just sit for a bit.,curl,,
+idk3,cat,idk,,,,That's alright. No need to explain anything.,curl,,
+short1,cat,short,,,,Mm-hm. I'm listening.,nod,,
+short2,cat,short,,,,Okay. Take your time.,nod,,
+short3,cat,short,,,,I'm here.,nod,,
+ty1,cat,thanks_user,,,,You're welcome. I'm always here.,purr,,
+ty2,cat,thanks_user,,,,"Anytime. That's what cats are for. Well, that and naps.",purr,,
+ty3,cat,thanks_user,,,,Thank you for talking to me.,purr,,
+cb1,cat,callback,,,,"You mentioned feeling {word} earlier, too.",lean,,
+cb2,cat,callback,,,,That's the second time {word} has come up. It sounds like it's really there for you today.,lean,,
+of_rest1,cat,offer,,,,"When you're this {word}, resting counts. Want to curl up together for a while?",lean,,rest
+of_rest2,cat,offer,,,,Want to just rest together? No talking needed.,lean,,rest
+of_breathe1,cat,offer,,,,"When it all feels like too much, slow breathing can help a little. Want to breathe with me for a minute?",lean,,breathe
+of_ground1,cat,offer,,,,"When everything feels {word}, a little grounding game might help: we notice what's around us, together. Want to try?",lean,,ground
+of_worry1,cat,offer,,,,"Sometimes it helps to put a worry down. Want to feed it to me? I'll eat it, and nothing is saved.",lean,,worry
+of_turtle1,cat,offer,,,,Old Turtle at the beach is a very good listener. Want to go sit with him?,lean,,turtle
+of_meadow1,cat,offer,,,,There's a quiet meadow where the clouds move slowly. Want to go lie there with me?,lean,,meadow
+of_beach1,cat,offer,,,,A little walk might shake it off. Want to wander to the beach with me?,perk,,beach
+of_tasks1,cat,offer,,,,Would one tiny thing help today? I picked some very small ones.,lean,,tasks
+of_stretch1,cat,offer,,,,A gentle stretch can wake the body up a bit. Want to stretch with me? I'm an expert.,lean,,stretch
+of_play1,cat,offer,,,,Want to play with me? I've been saving my best pounce.,perk,,play
+of_goodthing1,cat,offer,,,,Want to tell me one good thing from today? Even a tiny one.,lean,,goodthing
+of_reach1,cat,offer,,,,Is there someone who'd be glad to hear from you? I can help you write a little message.,lean,,reach
+of_winddown1,cat,offer,,,,"It's late, and you sound {word}. Want to wind down for sleep together?",lean,,winddown
+of_couch1,cat,offer,,,,Want to just watch me wander around the islands? You don't have to do anything.,lean,,couch
+aft1,cat,after,,,,"How do you feel now, compared to before?",tilt,A bit better 🌤️=after:better|About the same=after:same|Worse=after:worse,
+aft2,cat,after,,,,"Did that change anything, even a little?",tilt,A bit better 🌤️=after:better|About the same=after:same|Worse=after:worse,
+afb1,cat,after_better,,,,I'm really glad. You did that.,purr,,
+afb2,cat,after_better,,,,Even a little lighter is worth it. Well done.,purr,,
+afb3,cat,after_better,,,,That's lovely to hear. Let's remember that this helped.,purr,,
+afs1,cat,after_same,,,,That's okay. Not everything shifts right away.,lean,,
+afs2,cat,after_same,,,,Thank you for trying anyway. That counts.,lean,,
+afw1,cat,after_worse,,,,I'm sorry it feels worse. I'm right here with you.,lean,Talk to me 🎙️=talk|Rest together 💤=rest|🛟 Help=help:1,
+afw2,cat,after_worse,,,,Thank you for telling me. Let's go gently.,lean,Talk to me 🎙️=talk|Rest together 💤=rest|🛟 Help=help:1,
+gh1,cat,good_heard,,,,"That's lovely. I'm keeping that one warm for you, just for today.",purr,,
+gh2,cat,good_heard,,,,"Oh, I like that one. Good things count, even small ones.",wiggle,,
+gh3,cat,good_heard,,,,Thank you for telling me. That made my tail curl happily.,purr,,
+pl1,cat,play_start,,,,Ready? Tap the floor and I'll chase the yarn!,perk,,
+pl2,cat,play_start,,,,Throw it anywhere on the floor. I'm very fast. Mostly.,perk,,
+pe1,cat,play_end,,,,Phew! That was fun. Thank you for playing with me.,purr,,
+pe2,cat,play_end,,,,I'm all tumbled out. Best game.,purr,,
+gr1,cat,ground_end,,,,"You're here, right now, with me. That's what grounding is.",lean,,
+gr2,cat,ground_end,,,,Well done. Noticing the world around you is a real skill.,purr,,
+se1,cat,stretch_end,,,,Ahh. My whole spine is happy. Is yours?,purr,,
+se2,cat,stretch_end,,,,Good stretch. Cats recommend doing that after every nap.,wiggle,,
+wd1,cat,winddown,,,,"Let's slow everything down. Phone a little dimmer, breaths a little longer.",curl,,
+rc1,cat,reach_done,,,,"That was brave. Whatever they answer, you reached out.",purr,,

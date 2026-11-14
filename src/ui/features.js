@@ -10,9 +10,9 @@ import tasks from '../data/tasks.json';
  *        registerEffect, catName(), sound? }
  */
 export function installFeatures(app) {
-  app.registerEffect('breathe', () => breathe(app));
-  app.registerEffect('tasks', () => openTasks(app));
-  app.registerEffect('worry', () => askWorry(app));
+  app.registerEffect('breathe', (done) => breathe(app, typeof done === 'function' ? done : null));
+  app.registerEffect('tasks', (done) => openTasks(app, typeof done === 'function' ? done : null));
+  app.registerEffect('worry', (done) => askWorry(app, typeof done === 'function' ? done : null));
   app.registerEffect('worrysay', () => {
     app.captureNextTalk((text) => eatWorry(app, text));
     toast('Hold 🎙️ Talk and say the worry. I\'m hungry 😋', 3000);
@@ -23,7 +23,7 @@ export function installFeatures(app) {
 
 // ------------------------------------------------------------------ breathing (1 minute, expanding circle)
 const IN = 4000, OUT = 6000, TOTAL = 60000;
-export function breathe(app) {
+export function breathe(app, done) {
   const circle = el('div', { class: 'breath-circle', 'aria-hidden': 'true' }, '🐱');
   const cue = el('p', { class: 'breath-cue', 'aria-live': 'polite' }, 'Ready when you are.');
   const left = el('p', { class: 'small' }, '1 minute · 4 seconds in, 6 seconds out');
@@ -35,7 +35,9 @@ export function breathe(app) {
     const elapsed = Date.now() - t0;
     if (elapsed >= TOTAL) {
       cue.textContent = 'All done. ' + app.catName() + ' is very relaxed now. 💛';
-      left.textContent = ''; circle.style.transform = 'scale(0.55)'; start.textContent = 'Again'; running = false; clearInterval(tick); return;
+      left.textContent = ''; circle.style.transform = 'scale(0.55)'; start.textContent = 'Again'; running = false; clearInterval(tick);
+      if (done) { const d = done; done = null; setTimeout(() => { panel.close(); d(); }, 2200); }
+      return;
     }
     cue.textContent = 'Breathe in…';
     circle.style.transitionDuration = IN + 'ms';
@@ -56,7 +58,7 @@ export function breathe(app) {
     show(); tick = setInterval(show, 1000);
     cycle(t0);
   });
-  openPanel({
+  const panel = openPanel({
     title: app.currentScene() === 'World' ? '☁️ Breathe with the clouds' : '🫁 Breathe with ' + app.catName(),
     className: 'breath', onClose: stop,
     body: el('div', { class: 'breath' }, circle, cue, left, start),
@@ -64,7 +66,9 @@ export function breathe(app) {
 }
 
 // ------------------------------------------------------------------ worry-eating cat (nothing is stored)
-function askWorry(app) {
+let worryDone = null;
+function askWorry(app, done) {
+  worryDone = done || null;
   const line = pickLine('worry_ask', state);
   if (!line) return;
   line.choices = [{ label: '🎙️ Say it', effect: 'worrysay' }, { label: '⌨️ Type it', effect: 'worrytype' }];
@@ -81,6 +85,7 @@ export function eatWorry(app, text) {
   app.sound?.('chomp');
   app.home().eatWorry(() => {
     app.sayCtx('worry_eaten');
+    if (worryDone) { const d = worryDone; worryDone = null; setTimeout(d, 3000); }
     if (risk === 1) setTimeout(() => app.say(pickLine('gentle_check', state), { chip: true, onChip: () => app.openHelp(1) }), 3500);
   });
   text = null;                                 // gone — never kept
@@ -100,7 +105,7 @@ export function todaysTasks(energy, date = new Date()) {
   return pool.slice(0, 3);
 }
 
-function openTasks(app) {
+function openTasks(app, finished) {
   const list = el('div');
   const render = () => {
     list.innerHTML = '';
@@ -112,7 +117,7 @@ function openTasks(app) {
         row.append(el('p', { class: 'small' }, status === 'done' ? '✓ Done — ' + app.catName() + ' noticed 💛' : '💤 Rested instead. That counts.'));
       } else {
         row.append(el('div', { class: 'row' },
-          el('button', { class: 'btn primary', onclick: () => { done.set(t.id, 'done'); app.sound?.('sparkle'); closePanel(); app.showScene('Home'); app.sayCtx('task_done'); app.home()?.burst('spark', 6); } }, '✓ Did it'),
+          el('button', { class: 'btn primary', onclick: () => { done.set(t.id, 'done'); app.sound?.('sparkle'); closePanel(); app.showScene('Home'); app.sayCtx('task_done'); app.home()?.burst('spark', 6); if (finished) setTimeout(finished, 3000); } }, '✓ Did it'),
           el('button', { class: 'btn', onclick: () => { done.set(t.id, 'skipped'); closePanel(); app.sayCtx('task_skip'); } }, '💤 Skip')));
       }
       list.append(row);

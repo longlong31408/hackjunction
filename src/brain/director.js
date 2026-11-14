@@ -5,7 +5,7 @@ import { pickLine } from './dialogue.js';
 // a cap per session, and "Not now" really means quiet for 15 minutes.
 export const rules = { minGapMs: 45000, maxQuestions: 4, tickMs: 3000, greetDelayMs: 3000, snoozeMs: 15 * 60 * 1000 };
 let lastAsk = 0, asked = 0, snoozeUntil = 0, quiet = false, timers = [], suggested = false;
-let show = null, busy = () => false;
+let show = null, busy = () => false, makeOffer = null;
 
 /** Which calm place fits the current state (table in the dev guide, step 9). */
 export function suggestPlace(s = state) {
@@ -16,9 +16,10 @@ export function suggestPlace(s = state) {
   return 'home';
 }
 
-export function startDirector(showBubble, isBusy) {
+/** makeOffer (optional): returns a fitting activity offer from the coach instead of a fixed place line. */
+export function startDirector(showBubble, isBusy, offerFn) {
   stopDirector();
-  show = showBubble; busy = isBusy || (() => false);
+  show = showBubble; busy = isBusy || (() => false); makeOffer = offerFn || null;
   // Greet right after opening
   timers.push(setTimeout(() => say('greeting', true), rules.greetDelayMs));
   timers.push(setInterval(tick, rules.tickMs));
@@ -31,6 +32,7 @@ export function tick() {
 
   if (state.confidence >= 0.4 && state.confidence < 0.75) say('confirm');        // "You look sleepy… am I right?"
   else if (state.confidence < 0.4) say('indirect');                               // "Which blanket today?"
+  else if (makeOffer) { const line = makeOffer(); if (line) { lastAsk = Date.now(); asked++; show(line); } }   // a small activity that fits
   else if (!suggested) { suggested = true; say('suggest_place', false, suggestPlace()); } // "Want to see the beach?"
   else say('task');                                                               // "One tiny thing together?"
 }

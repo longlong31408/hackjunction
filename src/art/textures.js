@@ -348,6 +348,10 @@ export function particle(kind) {
   if (kind === 'heart') { ctx.scale(2.4, 2.4); ctx.fillStyle = '#FF8FAB'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, 5); ctx.bezierCurveTo(-8, -1, -5, -8, 0, -4); ctx.bezierCurveTo(5, -8, 8, -1, 0, 5); ctx.fill(); ctx.stroke(); }
   if (kind === 'spark') { ctx.fillStyle = '#FFE08A'; ctx.beginPath(); for (let i = 0; i < 8; i++) { const r = i % 2 ? 5 : 16, a = (i * Math.PI) / 4; ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r); } ctx.fill(); }
   if (kind === 'paper') { ctx.fillStyle = '#FFFDF8'; ctx.fillRect(-5, -12, 10, 24); ctx.strokeRect(-5, -12, 10, 24); }
+  if (kind === 'yarn') {
+    ctx.lineWidth = 2.5; ctx.fillStyle = '#FF9EB5'; ctx.beginPath(); ctx.arc(0, 0, 19, 0, 7); ctx.fill(); ctx.stroke();
+    ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(-3, 2, 12, 0.3, 2.6); ctx.stroke(); ctx.beginPath(); ctx.arc(4, -3, 10, 3.6, 5.6); ctx.stroke();
+  }
   return cv;
 }
 
@@ -365,7 +369,7 @@ export function registerArt(scene, look = {}) {
   add('turtle', () => turtle(false));
   add('turtleNod', () => turtle(true));
   add('sheep', () => sheep());
-  ['heart', 'spark', 'paper'].forEach((k) => add(k, () => particle(k)));
+  ['heart', 'spark', 'paper', 'yarn'].forEach((k) => add(k, () => particle(k)));
 }
 
 /** Redraw the cat textures (new coat or accessory). PNG overrides are left alone. */

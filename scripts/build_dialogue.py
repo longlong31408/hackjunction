@@ -29,7 +29,12 @@ MOODS = {"heavy", "low", "neutral", "light", "bright"}
 NEEDS = {"rest", "vent", "distract", "company"}
 PLACES = {"beach", "meadow", "home"}
 SPEAKERS = {"cat", "turtle", "sheep"}
-SIMPLE_EFFECTS = {"confirm", "talk", "breathe", "tasks", "worry", "stay", "rest", "turtle", "reassure", "ok"}
+SIMPLE_EFFECTS = {"confirm", "talk", "type", "breathe", "tasks", "worry", "stay", "rest", "turtle", "reassure", "ok",
+                  "more", "summary_yes", "summary_no"}
+ACTIVITIES = {"rest", "breathe", "ground", "worry", "turtle", "meadow", "beach", "tasks", "stretch", "play",
+              "goodthing", "reach", "winddown", "couch"}
+FEELINGS = {"tired", "sad", "lonely", "stressed", "angry", "bored", "grief", "shame", "happy"}
+AREAS = {"work", "school", "family", "relationship", "friends", "sleep", "health", "money"}
 # Minimum content from the dev guide (section 7)
 MINIMUM = {"greeting": 15, "confirm": 6, "indirect": 3, "reply": 20, "gentle_check": 4,
            "suggest_place": 6, "turtle": 15, "task": 6, "goodbye": 3}
@@ -43,14 +48,15 @@ def check_effect(row_id, effect):
         part = part.strip()
         if part in SIMPLE_EFFECTS:
             continue
-        m = re.fullmatch(r"(mood|energy|need|go|help):(\w+)", part)
+        m = re.fullmatch(r"(mood|energy|need|go|help|act|after):(\w+)", part)
         if not m:
             errors.append(f"{row_id}: unknown effect '{part}'")
             continue
         key, val = m.groups()
         ok = {"mood": val in MOODS, "need": val in NEEDS, "go": val in PLACES,
               "energy": val.isdigit() and 1 <= int(val) <= 5,
-              "help": val.isdigit() and 1 <= int(val) <= 3}[key]
+              "help": val.isdigit() and 1 <= int(val) <= 3,
+              "act": val in ACTIVITIES, "after": val in {"better", "same", "worse"}}[key]
         if not ok:
             errors.append(f"{row_id}: bad value in '{part}'")
 
@@ -101,13 +107,31 @@ for ctx, n in PER_MOOD.items():
         have = sum(1 for l in rows if l["context"] == ctx and mood in l.get("mood", []))
         if have < n:
             errors.append(f"context '{ctx}': {have} lines for mood '{mood}', need {n}")
-REPLY_TOPICS = {"tired", "sad", "lonely", "stressed", "angry", "bored", "happy"}
-for topic in REPLY_TOPICS:
-    if sum(1 for l in rows if l["context"] == "reply" and l.get("tag") == topic) < 4:
-        errors.append(f"reply needs at least 4 lines tagged '{topic}'")
+# The layered conversation (docs/CONVERSATION_GUIDE.md): every feeling, area and activity is covered.
+def need(ctx, tag, n):
+    if sum(1 for l in rows if l["context"] == ctx and l.get("tag") == tag) < n:
+        errors.append(f"'{ctx}' needs at least {n} line(s) tagged '{tag}'")
+for f in FEELINGS:
+    need("reflect", f, 2); need("ask", f, 2)
+for a in AREAS:
+    need("reflect_area", a, 1); need("ask_area", a, 1)
+for a in ACTIVITIES:
+    need("offer", a, 1)
+for tag in ("area", "normalize", "lasting"):
+    need("validate", tag, 2)
+for tag in ("effort", "sharing", "heard"):
+    need("affirm", tag, 2)
+for ctx in ("summary", "idk", "after", "after_better", "after_same", "after_worse"):
+    if not any(l["context"] == ctx for l in rows):
+        errors.append(f"missing context '{ctx}'")
+PLACEHOLDERS = {"{word}": {"reflect", "validate", "offer", "callback"}, "{area}": {"validate"}, "{summary}": {"summary"}}
 for l in rows:
-    if "{word}" in l["text"] and l.get("tag") not in REPLY_TOPICS:
-        errors.append(f"{l['id']}: {{word}} only works in topic replies")
+    for ph, ctxs in PLACEHOLDERS.items():
+        if ph in l["text"] and l["context"] not in ctxs:
+            errors.append(f"{l['id']}: {ph} can only be used in {sorted(ctxs)}")
+    # rule 6 of the conversation guide
+    if re.search(r"\byou should\b|\bcheer up\b|everything will be (fine|okay)|\bat least\b", l["text"], re.I):
+        errors.append(f"{l['id']}: breaks the writing rules (no 'you should', 'cheer up', promises or 'at least')")
 for place in PLACES:
     if sum(1 for l in rows if l["context"] == "suggest_place" and l.get("tag") == place) < 2:
         errors.append(f"suggest_place needs 2 lines tagged '{place}'")

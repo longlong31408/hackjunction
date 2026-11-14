@@ -58,7 +58,8 @@ export function update({ text, valence, loudness, topic } = {}) {
     if (T && isNegativeTopic(topic) && (valence == null || valence > T.valence)) valence = T.valence;
     if (T && !isNegativeTopic(topic) && (valence == null || valence < 0.2)) valence = T.valence;
     if (valence != null) moodVotes.push([valence, 0.7]);
-    if (has(text, WORDS.energyLow)) energyVotes.push([1.5, 0.7]);
+    const intense = /\b(really|so|very|extremely|completely|totally|super)\b/i.test(text);
+    if (has(text, WORDS.energyLow)) energyVotes.push([intense ? 1 : 2, 0.7]);   // "really tired" → 1, "tired" → 2
     if (has(text, WORDS.energyHigh)) energyVotes.push([4.5, 0.7]);
     state.need = has(text, WORDS.needVent) ? 'vent'
       : has(text, WORDS.needDistract) ? 'distract'
@@ -67,7 +68,7 @@ export function update({ text, valence, loudness, topic } = {}) {
   }
 
   const wavg = (v) => v.reduce((a, [x, w]) => a + x * w, 0) / v.reduce((a, [, w]) => a + w, 0);
-  if (energyVotes.length) state.energy = Math.round(clamp(wavg(energyVotes), 1, 5));
+  if (energyVotes.length) state.energy = Math.round(clamp(wavg(energyVotes) + 1e-9, 1, 5));   // +1e-9: 1.4999… must round like 1.5
   if (moodVotes.length) {
     const m = wavg(moodVotes);
     state.mood = m < -0.6 ? 'heavy' : m < -0.2 ? 'low' : m < 0.2 ? 'neutral' : m < 0.6 ? 'light' : 'bright';

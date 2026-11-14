@@ -1371,7 +1371,7 @@
     "id": "w1",
     "speaker": "cat",
     "context": "worry_eaten",
-    "text": "Nom. That one's gone now, at least for a while.",
+    "text": "Nom. That one's gone now, for a while anyway.",
     "anim": "wiggle"
   },
   {
@@ -1473,464 +1473,6 @@
     "anim": "curl"
   },
   {
-    "id": "rt1",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Really {word}… that sounds draining. You don't have to do anything right now.",
-    "anim": "curl",
-    "choices": [
-      {
-        "label": "Rest with me 💤",
-        "effect": "rest"
-      },
-      {
-        "label": "Tell you more 🎙️",
-        "effect": "talk"
-      }
-    ],
-    "tag": "tired"
-  },
-  {
-    "id": "rt2",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "When you're this {word}, even small things take a lot. I'm glad you still came to see me.",
-    "anim": "lean",
-    "tag": "tired"
-  },
-  {
-    "id": "rt3",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Let's make it a soft day. Want to lie in the meadow with me and do absolutely nothing?",
-    "anim": "curl",
-    "choices": [
-      {
-        "label": "Rest in the meadow ☁️",
-        "effect": "go:meadow"
-      },
-      {
-        "label": "Rest here 💤",
-        "effect": "rest"
-      }
-    ],
-    "tag": "tired"
-  },
-  {
-    "id": "rt4",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Being {word} is your body asking for kindness. Maybe a sip of water, then a rest?",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Rest with me 💤",
-        "effect": "rest"
-      },
-      {
-        "label": "Water together 💧",
-        "effect": "tasks"
-      }
-    ],
-    "tag": "tired"
-  },
-  {
-    "id": "rt5",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "I'll curl up right next to you. We can be {word} together, quietly.",
-    "anim": "curl",
-    "choices": [
-      {
-        "label": "Rest with me 💤",
-        "effect": "rest"
-      },
-      {
-        "label": "Tell you more 🎙️",
-        "effect": "talk"
-      }
-    ],
-    "tag": "tired"
-  },
-  {
-    "id": "rs1",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "I'm so sorry you're feeling {word}. I'm right here next to you.",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Tell you about it 🎙️",
-        "effect": "talk"
-      },
-      {
-        "label": "Just sit with me",
-        "effect": "rest"
-      }
-    ],
-    "tag": "sad"
-  },
-  {
-    "id": "rs2",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "That sounds really hard. Do you want to tell me what happened, or just sit together for a bit?",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Tell you 🎙️",
-        "effect": "talk"
-      },
-      {
-        "label": "Sit together",
-        "effect": "rest"
-      }
-    ],
-    "tag": "sad"
-  },
-  {
-    "id": "rs3",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Feeling {word} makes sense sometimes. You don't have to cheer up for me.",
-    "anim": "curl",
-    "tag": "sad"
-  },
-  {
-    "id": "rs4",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "I'm staying close. Want to listen to the waves with Old Turtle? He's very gentle.",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Go with you 🐢",
-        "effect": "go:beach"
-      },
-      {
-        "label": "Stay here",
-        "effect": "rest"
-      }
-    ],
-    "tag": "sad"
-  },
-  {
-    "id": "rl1",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Feeling {word} really hurts. I'm glad you told me, and I'm here with you right now.",
-    "anim": "lean",
-    "tag": "lonely"
-  },
-  {
-    "id": "rl2",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "You're not on your own in this moment. I'm right here, purring quietly next to you.",
-    "anim": "purr",
-    "choices": [
-      {
-        "label": "Tell you more 🎙️",
-        "effect": "talk"
-      },
-      {
-        "label": "Just stay",
-        "effect": "rest"
-      }
-    ],
-    "tag": "lonely"
-  },
-  {
-    "id": "rl3",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Is there one person you could send a tiny 'hi' to later? Only if it feels okay.",
-    "anim": "tilt",
-    "choices": [
-      {
-        "label": "Maybe later",
-        "effect": "ok"
-      },
-      {
-        "label": "Tell you about it 🎙️",
-        "effect": "talk"
-      }
-    ],
-    "tag": "lonely"
-  },
-  {
-    "id": "rl4",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Want some company at the beach? Old Turtle loves visitors.",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Visit Turtle 🐢",
-        "effect": "go:beach"
-      },
-      {
-        "label": "Stay with you",
-        "effect": "rest"
-      }
-    ],
-    "tag": "lonely"
-  },
-  {
-    "id": "rx1",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "That sounds like a lot to carry at once. Want to breathe slowly with me for a minute?",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Breathe with you 🫁",
-        "effect": "breathe"
-      },
-      {
-        "label": "Tell you more 🎙️",
-        "effect": "talk"
-      }
-    ],
-    "tag": "stressed"
-  },
-  {
-    "id": "rx2",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "When everything feels {word}, it helps to put one thing down. Want to feed me that worry?",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Feed you the worry 😋",
-        "effect": "worry"
-      },
-      {
-        "label": "Not right now",
-        "effect": "ok"
-      }
-    ],
-    "tag": "stressed"
-  },
-  {
-    "id": "rx3",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "You don't have to fix it all today. Let's just get through the next few minutes together.",
-    "anim": "curl",
-    "tag": "stressed"
-  },
-  {
-    "id": "rx4",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Being {word} is so tiring. Tell me the biggest part, if you want.",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Tell you 🎙️",
-        "effect": "talk"
-      },
-      {
-        "label": "Breathe first 🫁",
-        "effect": "breathe"
-      }
-    ],
-    "tag": "stressed"
-  },
-  {
-    "id": "ra1",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "That sounds really frustrating. It's okay to feel {word}.",
-    "anim": "lean",
-    "choices": [
-      {
-        "label": "Tell you what happened 🎙️",
-        "effect": "talk"
-      },
-      {
-        "label": "Let it go for now",
-        "effect": "ok"
-      }
-    ],
-    "tag": "angry"
-  },
-  {
-    "id": "ra2",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "That would make my tail puff up too. Want to tell me what happened?",
-    "anim": "tilt",
-    "choices": [
-      {
-        "label": "Tell you 🎙️",
-        "effect": "talk"
-      },
-      {
-        "label": "Not now",
-        "effect": "ok"
-      }
-    ],
-    "tag": "angry"
-  },
-  {
-    "id": "ra3",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Feeling {word} makes sense. Want to walk it off at the beach with me?",
-    "anim": "perk",
-    "choices": [
-      {
-        "label": "Walk with you 🏖️",
-        "effect": "go:beach"
-      },
-      {
-        "label": "Stay here",
-        "effect": "ok"
-      }
-    ],
-    "tag": "angry"
-  },
-  {
-    "id": "ra4",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Let's take one slow breath before anything else. I'll do it with you.",
-    "anim": "curl",
-    "choices": [
-      {
-        "label": "Breathe with you 🫁",
-        "effect": "breathe"
-      }
-    ],
-    "tag": "angry"
-  },
-  {
-    "id": "rb1",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Bored? I know a beach with a very chatty turtle.",
-    "anim": "perk",
-    "choices": [
-      {
-        "label": "Show me 🏖️",
-        "effect": "go:beach"
-      },
-      {
-        "label": "Stay here",
-        "effect": "ok"
-      }
-    ],
-    "tag": "bored"
-  },
-  {
-    "id": "rb2",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Ooh, I have an idea: three tiny tasks, then a nap.",
-    "anim": "wiggle",
-    "choices": [
-      {
-        "label": "Show me 🧶",
-        "effect": "tasks"
-      },
-      {
-        "label": "Nah",
-        "effect": "ok"
-      }
-    ],
-    "tag": "bored"
-  },
-  {
-    "id": "rb3",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Boredom is your brain asking for something new. Want to explore the meadow?",
-    "anim": "perk",
-    "choices": [
-      {
-        "label": "Explore ☁️",
-        "effect": "go:meadow"
-      },
-      {
-        "label": "Stay here",
-        "effect": "ok"
-      }
-    ],
-    "tag": "bored"
-  },
-  {
-    "id": "rb4",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "I could chase my tail for you. Or we could go exploring?",
-    "anim": "wiggle",
-    "choices": [
-      {
-        "label": "Exploring 🗺️",
-        "effect": "go:meadow"
-      },
-      {
-        "label": "Tail, please",
-        "effect": "ok"
-      }
-    ],
-    "tag": "bored"
-  },
-  {
-    "id": "rh1",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Yay, that's so good to hear! Tell me the best part?",
-    "anim": "perk",
-    "choices": [
-      {
-        "label": "Tell you 🎙️",
-        "effect": "talk"
-      },
-      {
-        "label": "Later",
-        "effect": "ok"
-      }
-    ],
-    "tag": "happy"
-  },
-  {
-    "id": "rh2",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "That made my whiskers wiggle. I love hearing that.",
-    "anim": "wiggle",
-    "tag": "happy"
-  },
-  {
-    "id": "rh3",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Look at you! Want to celebrate with a walk to the beach?",
-    "anim": "perk",
-    "choices": [
-      {
-        "label": "Let's go 🏖️",
-        "effect": "go:beach"
-      },
-      {
-        "label": "Stay cozy",
-        "effect": "ok"
-      }
-    ],
-    "tag": "happy"
-  },
-  {
-    "id": "rh4",
-    "speaker": "cat",
-    "context": "reply",
-    "text": "Happy you, happy cat. I'm purring very loudly.",
-    "anim": "purr",
-    "tag": "happy"
-  },
-  {
     "id": "rest1",
     "speaker": "cat",
     "context": "rest",
@@ -1950,5 +1492,1224 @@
     "context": "rest",
     "text": "Resting together. I won't ask you anything for a while.",
     "anim": "curl"
+  },
+  {
+    "id": "rf_tired1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like you're really {word}, like there's nothing left in the tank.",
+    "anim": "lean",
+    "tag": "tired"
+  },
+  {
+    "id": "rf_tired2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "Being {word} like that makes everything feel heavier.",
+    "anim": "lean",
+    "tag": "tired"
+  },
+  {
+    "id": "rf_tired3",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So you're {word}. Your body and your mind both sound like they need a break.",
+    "anim": "lean",
+    "tag": "tired"
+  },
+  {
+    "id": "rf_tired4",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "{word}, and still here talking to me. That sounds like a long day.",
+    "anim": "lean",
+    "tag": "tired"
+  },
+  {
+    "id": "rf_sad1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like you're feeling really {word} right now.",
+    "anim": "lean",
+    "tag": "sad"
+  },
+  {
+    "id": "rf_sad2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So there's a heaviness today. Feeling {word} can make everything look grey.",
+    "anim": "lean",
+    "tag": "sad"
+  },
+  {
+    "id": "rf_sad3",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "You're feeling {word}. That's a hard place to be.",
+    "anim": "lean",
+    "tag": "sad"
+  },
+  {
+    "id": "rf_sad4",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like something has been hurting.",
+    "anim": "lean",
+    "tag": "sad"
+  },
+  {
+    "id": "rf_lonely1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like you're feeling {word}, like no one is really there with you.",
+    "anim": "lean",
+    "tag": "lonely"
+  },
+  {
+    "id": "rf_lonely2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "Feeling {word} can hurt in a quiet, heavy way.",
+    "anim": "lean",
+    "tag": "lonely"
+  },
+  {
+    "id": "rf_lonely3",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So you've been feeling {word}. That's a really hard feeling to sit with.",
+    "anim": "lean",
+    "tag": "lonely"
+  },
+  {
+    "id": "rf_stressed1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like you're feeling {word}, like there's too much at once.",
+    "anim": "lean",
+    "tag": "stressed"
+  },
+  {
+    "id": "rf_stressed2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So everything is piling up and you're feeling {word}.",
+    "anim": "lean",
+    "tag": "stressed"
+  },
+  {
+    "id": "rf_stressed3",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "Feeling {word} like that can make it hard to even think straight.",
+    "anim": "lean",
+    "tag": "stressed"
+  },
+  {
+    "id": "rf_angry1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like you're really {word}.",
+    "anim": "lean",
+    "tag": "angry"
+  },
+  {
+    "id": "rf_angry2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "Something got under your skin, and you're feeling {word}.",
+    "anim": "lean",
+    "tag": "angry"
+  },
+  {
+    "id": "rf_angry3",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So you're {word}. It sounds like something didn't feel fair.",
+    "anim": "lean",
+    "tag": "angry"
+  },
+  {
+    "id": "rf_bored1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So you're {word}, like the day is a bit empty.",
+    "anim": "wiggle",
+    "tag": "bored"
+  },
+  {
+    "id": "rf_bored2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like you're {word} and looking for something to do.",
+    "anim": "wiggle",
+    "tag": "bored"
+  },
+  {
+    "id": "rf_grief1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like you're {word}. Losing someone leaves such a big space.",
+    "anim": "lean",
+    "tag": "grief"
+  },
+  {
+    "id": "rf_grief2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "You're {word}. That kind of pain doesn't follow a schedule.",
+    "anim": "lean",
+    "tag": "grief"
+  },
+  {
+    "id": "rf_grief3",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So you're carrying a loss right now. That's one of the heaviest things there is.",
+    "anim": "lean",
+    "tag": "grief"
+  },
+  {
+    "id": "rf_shame1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "It sounds like you're feeling {word} right now.",
+    "anim": "lean",
+    "tag": "shame"
+  },
+  {
+    "id": "rf_shame2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So you're being really hard on yourself.",
+    "anim": "lean",
+    "tag": "shame"
+  },
+  {
+    "id": "rf_shame3",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "Feeling {word} can be so painful, like it's all on you.",
+    "anim": "lean",
+    "tag": "shame"
+  },
+  {
+    "id": "rf_happy1",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "You sound {word}! I can almost see your whiskers.",
+    "anim": "wiggle",
+    "tag": "happy"
+  },
+  {
+    "id": "rf_happy2",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "Oh, it sounds like things feel {word} today.",
+    "anim": "wiggle",
+    "tag": "happy"
+  },
+  {
+    "id": "rf_happy3",
+    "speaker": "cat",
+    "context": "reflect",
+    "text": "So today feels {word}. I love hearing that.",
+    "anim": "wiggle",
+    "tag": "happy"
+  },
+  {
+    "id": "ra_work1",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "It sounds like work has been taking a lot out of you.",
+    "anim": "lean",
+    "tag": "work"
+  },
+  {
+    "id": "ra_work2",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "Work sounds really demanding right now.",
+    "anim": "lean",
+    "tag": "work"
+  },
+  {
+    "id": "ra_school1",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "It sounds like school has been a lot lately.",
+    "anim": "lean",
+    "tag": "school"
+  },
+  {
+    "id": "ra_school2",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "School sounds like it's asking a lot of you right now.",
+    "anim": "lean",
+    "tag": "school"
+  },
+  {
+    "id": "ra_family1",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "It sounds like things at home are weighing on you.",
+    "anim": "lean",
+    "tag": "family"
+  },
+  {
+    "id": "ra_family2",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "Family stuff can be so complicated.",
+    "anim": "lean",
+    "tag": "family"
+  },
+  {
+    "id": "ra_relationship1",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "It sounds like things in your relationship are hard right now.",
+    "anim": "lean",
+    "tag": "relationship"
+  },
+  {
+    "id": "ra_relationship2",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "Relationships can hurt in a very particular way.",
+    "anim": "lean",
+    "tag": "relationship"
+  },
+  {
+    "id": "ra_friends1",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "It sounds like something with your friends is on your mind.",
+    "anim": "lean",
+    "tag": "friends"
+  },
+  {
+    "id": "ra_friends2",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "Friend stuff can be tricky and tender.",
+    "anim": "lean",
+    "tag": "friends"
+  },
+  {
+    "id": "ra_sleep1",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "It sounds like sleep hasn't been kind to you.",
+    "anim": "lean",
+    "tag": "sleep"
+  },
+  {
+    "id": "ra_sleep2",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "Not sleeping well makes everything harder.",
+    "anim": "lean",
+    "tag": "sleep"
+  },
+  {
+    "id": "ra_health1",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "It sounds like your body hasn't been feeling well.",
+    "anim": "lean",
+    "tag": "health"
+  },
+  {
+    "id": "ra_health2",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "Not feeling well physically wears everything else down too.",
+    "anim": "lean",
+    "tag": "health"
+  },
+  {
+    "id": "ra_money1",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "It sounds like money worries are sitting heavy.",
+    "anim": "lean",
+    "tag": "money"
+  },
+  {
+    "id": "ra_money2",
+    "speaker": "cat",
+    "context": "reflect_area",
+    "text": "Money stress follows you everywhere, doesn't it.",
+    "anim": "lean",
+    "tag": "money"
+  },
+  {
+    "id": "va_area1",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "No wonder you're feeling {word}, with {area} going on.",
+    "anim": "lean",
+    "tag": "area"
+  },
+  {
+    "id": "va_area2",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "Feeling {word} makes a lot of sense, with everything around {area}.",
+    "anim": "lean",
+    "tag": "area"
+  },
+  {
+    "id": "va_area3",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "Anyone would feel {word} with {area} like that.",
+    "anim": "lean",
+    "tag": "area"
+  },
+  {
+    "id": "va_norm1",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "That makes a lot of sense.",
+    "anim": "nod",
+    "tag": "normalize"
+  },
+  {
+    "id": "va_norm2",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "Anyone would feel that way.",
+    "anim": "nod",
+    "tag": "normalize"
+  },
+  {
+    "id": "va_norm3",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "It's okay to feel like this.",
+    "anim": "nod",
+    "tag": "normalize"
+  },
+  {
+    "id": "va_norm4",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "That's a really human way to feel.",
+    "anim": "nod",
+    "tag": "normalize"
+  },
+  {
+    "id": "va_long1",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "And it sounds like it's been going on for a while, which makes it even heavier.",
+    "anim": "lean",
+    "tag": "lasting"
+  },
+  {
+    "id": "va_long2",
+    "speaker": "cat",
+    "context": "validate",
+    "text": "When it's been like this for a while, it really wears you down.",
+    "anim": "lean",
+    "tag": "lasting"
+  },
+  {
+    "id": "as_tired1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What's been taking the most energy lately?",
+    "anim": "tilt",
+    "tag": "tired"
+  },
+  {
+    "id": "as_tired2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "How have you been sleeping?",
+    "anim": "tilt",
+    "tag": "tired"
+  },
+  {
+    "id": "as_tired3",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What would real rest look like for you today?",
+    "anim": "tilt",
+    "tag": "tired"
+  },
+  {
+    "id": "as_sad1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What's been weighing on you the most?",
+    "anim": "tilt",
+    "tag": "sad"
+  },
+  {
+    "id": "as_sad2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "When did it start feeling like this?",
+    "anim": "tilt",
+    "tag": "sad"
+  },
+  {
+    "id": "as_sad3",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "Do you want to tell me a bit more about it?",
+    "anim": "tilt",
+    "tag": "sad"
+  },
+  {
+    "id": "as_lonely1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "Who do you miss the most at the moment?",
+    "anim": "tilt",
+    "tag": "lonely"
+  },
+  {
+    "id": "as_lonely2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What kind of company would feel good right now: talking, or just someone nearby?",
+    "anim": "tilt",
+    "tag": "lonely"
+  },
+  {
+    "id": "as_stressed1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What feels like the biggest thing on your plate?",
+    "anim": "tilt",
+    "tag": "stressed"
+  },
+  {
+    "id": "as_stressed2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "Which part worries you the most?",
+    "anim": "tilt",
+    "tag": "stressed"
+  },
+  {
+    "id": "as_stressed3",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What would make the next hour a little easier?",
+    "anim": "tilt",
+    "tag": "stressed"
+  },
+  {
+    "id": "as_angry1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What happened?",
+    "anim": "tilt",
+    "tag": "angry"
+  },
+  {
+    "id": "as_angry2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What part of it bothers you the most?",
+    "anim": "tilt",
+    "tag": "angry"
+  },
+  {
+    "id": "as_bored1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What usually makes the day feel a bit brighter for you?",
+    "anim": "tilt",
+    "tag": "bored"
+  },
+  {
+    "id": "as_bored2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "If you could do anything right now, what would it be?",
+    "anim": "tilt",
+    "tag": "bored"
+  },
+  {
+    "id": "as_grief1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "Would you like to tell me about them?",
+    "anim": "tilt",
+    "tag": "grief"
+  },
+  {
+    "id": "as_grief2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What do you miss the most?",
+    "anim": "tilt",
+    "tag": "grief"
+  },
+  {
+    "id": "as_shame1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What makes you feel that way about yourself?",
+    "anim": "tilt",
+    "tag": "shame"
+  },
+  {
+    "id": "as_shame2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What would you say to a friend who felt like this?",
+    "anim": "tilt",
+    "tag": "shame"
+  },
+  {
+    "id": "as_happy1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What made it so good?",
+    "anim": "tilt",
+    "tag": "happy"
+  },
+  {
+    "id": "as_happy2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "Tell me the best part?",
+    "anim": "tilt",
+    "tag": "happy"
+  },
+  {
+    "id": "as_open1",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "What's been on your mind today?",
+    "anim": "tilt",
+    "tag": "open"
+  },
+  {
+    "id": "as_open2",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "How has today been, really?",
+    "anim": "tilt",
+    "tag": "open"
+  },
+  {
+    "id": "as_open3",
+    "speaker": "cat",
+    "context": "ask",
+    "text": "Want to tell me more?",
+    "anim": "tilt",
+    "tag": "open"
+  },
+  {
+    "id": "aa_work",
+    "speaker": "cat",
+    "context": "ask_area",
+    "text": "What's been the hardest part about work?",
+    "anim": "tilt",
+    "tag": "work"
+  },
+  {
+    "id": "aa_school",
+    "speaker": "cat",
+    "context": "ask_area",
+    "text": "What's the hardest part about school right now?",
+    "anim": "tilt",
+    "tag": "school"
+  },
+  {
+    "id": "aa_family",
+    "speaker": "cat",
+    "context": "ask_area",
+    "text": "What's been happening at home?",
+    "anim": "tilt",
+    "tag": "family"
+  },
+  {
+    "id": "aa_relationship",
+    "speaker": "cat",
+    "context": "ask_area",
+    "text": "Do you want to tell me what's going on between you two?",
+    "anim": "tilt",
+    "tag": "relationship"
+  },
+  {
+    "id": "aa_friends",
+    "speaker": "cat",
+    "context": "ask_area",
+    "text": "What happened with your friends?",
+    "anim": "tilt",
+    "tag": "friends"
+  },
+  {
+    "id": "aa_sleep",
+    "speaker": "cat",
+    "context": "ask_area",
+    "text": "What usually keeps you awake?",
+    "anim": "tilt",
+    "tag": "sleep"
+  },
+  {
+    "id": "aa_health",
+    "speaker": "cat",
+    "context": "ask_area",
+    "text": "How is your body feeling right now?",
+    "anim": "tilt",
+    "tag": "health"
+  },
+  {
+    "id": "aa_money",
+    "speaker": "cat",
+    "context": "ask_area",
+    "text": "What feels most urgent about it?",
+    "anim": "tilt",
+    "tag": "money"
+  },
+  {
+    "id": "af_eff1",
+    "speaker": "cat",
+    "context": "affirm",
+    "text": "You still did that, even feeling like this. That's not small.",
+    "anim": "purr",
+    "tag": "effort"
+  },
+  {
+    "id": "af_eff2",
+    "speaker": "cat",
+    "context": "affirm",
+    "text": "That took real effort. I noticed.",
+    "anim": "purr",
+    "tag": "effort"
+  },
+  {
+    "id": "af_eff3",
+    "speaker": "cat",
+    "context": "affirm",
+    "text": "You kept going, even when it was hard. That counts.",
+    "anim": "purr",
+    "tag": "effort"
+  },
+  {
+    "id": "af_share1",
+    "speaker": "cat",
+    "context": "affirm",
+    "text": "Thank you for trusting me with this.",
+    "anim": "purr",
+    "tag": "sharing"
+  },
+  {
+    "id": "af_share2",
+    "speaker": "cat",
+    "context": "affirm",
+    "text": "I'm really glad you're telling me.",
+    "anim": "purr",
+    "tag": "sharing"
+  },
+  {
+    "id": "af_share3",
+    "speaker": "cat",
+    "context": "affirm",
+    "text": "It takes courage to say this out loud.",
+    "anim": "purr",
+    "tag": "sharing"
+  },
+  {
+    "id": "af_heard1",
+    "speaker": "cat",
+    "context": "affirm",
+    "text": "Thank you. I feel like I understand you a little better now.",
+    "anim": "purr",
+    "tag": "heard"
+  },
+  {
+    "id": "af_heard2",
+    "speaker": "cat",
+    "context": "affirm",
+    "text": "Okay. Thank you for letting me listen.",
+    "anim": "purr",
+    "tag": "heard"
+  },
+  {
+    "id": "su1",
+    "speaker": "cat",
+    "context": "summary",
+    "text": "Let me see if I've got it: {summary}. Did I get that right?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Yes, that's it",
+        "effect": "summary_yes"
+      },
+      {
+        "label": "Not quite",
+        "effect": "summary_no"
+      }
+    ]
+  },
+  {
+    "id": "su2",
+    "speaker": "cat",
+    "context": "summary",
+    "text": "So if I understand you: {summary}. Is that right?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Yes",
+        "effect": "summary_yes"
+      },
+      {
+        "label": "Not quite",
+        "effect": "summary_no"
+      }
+    ]
+  },
+  {
+    "id": "sf1",
+    "speaker": "cat",
+    "context": "summary_fix",
+    "text": "Thank you for correcting me. What did I miss?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Type it ⌨️",
+        "effect": "type"
+      }
+    ]
+  },
+  {
+    "id": "sf2",
+    "speaker": "cat",
+    "context": "summary_fix",
+    "text": "I'm sorry I didn't quite get it. Will you tell me again?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Type it ⌨️",
+        "effect": "type"
+      }
+    ]
+  },
+  {
+    "id": "idk1",
+    "speaker": "cat",
+    "context": "idk",
+    "text": "That's okay. Sometimes it's hard to put into words. I'm here either way.",
+    "anim": "curl"
+  },
+  {
+    "id": "idk2",
+    "speaker": "cat",
+    "context": "idk",
+    "text": "You don't have to know. We can just sit for a bit.",
+    "anim": "curl"
+  },
+  {
+    "id": "idk3",
+    "speaker": "cat",
+    "context": "idk",
+    "text": "That's alright. No need to explain anything.",
+    "anim": "curl"
+  },
+  {
+    "id": "short1",
+    "speaker": "cat",
+    "context": "short",
+    "text": "Mm-hm. I'm listening.",
+    "anim": "nod"
+  },
+  {
+    "id": "short2",
+    "speaker": "cat",
+    "context": "short",
+    "text": "Okay. Take your time.",
+    "anim": "nod"
+  },
+  {
+    "id": "short3",
+    "speaker": "cat",
+    "context": "short",
+    "text": "I'm here.",
+    "anim": "nod"
+  },
+  {
+    "id": "ty1",
+    "speaker": "cat",
+    "context": "thanks_user",
+    "text": "You're welcome. I'm always here.",
+    "anim": "purr"
+  },
+  {
+    "id": "ty2",
+    "speaker": "cat",
+    "context": "thanks_user",
+    "text": "Anytime. That's what cats are for. Well, that and naps.",
+    "anim": "purr"
+  },
+  {
+    "id": "ty3",
+    "speaker": "cat",
+    "context": "thanks_user",
+    "text": "Thank you for talking to me.",
+    "anim": "purr"
+  },
+  {
+    "id": "cb1",
+    "speaker": "cat",
+    "context": "callback",
+    "text": "You mentioned feeling {word} earlier, too.",
+    "anim": "lean"
+  },
+  {
+    "id": "cb2",
+    "speaker": "cat",
+    "context": "callback",
+    "text": "That's the second time {word} has come up. It sounds like it's really there for you today.",
+    "anim": "lean"
+  },
+  {
+    "id": "of_rest1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "When you're this {word}, resting counts. Want to curl up together for a while?",
+    "anim": "lean",
+    "tag": "rest"
+  },
+  {
+    "id": "of_rest2",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "Want to just rest together? No talking needed.",
+    "anim": "lean",
+    "tag": "rest"
+  },
+  {
+    "id": "of_breathe1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "When it all feels like too much, slow breathing can help a little. Want to breathe with me for a minute?",
+    "anim": "lean",
+    "tag": "breathe"
+  },
+  {
+    "id": "of_ground1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "When everything feels {word}, a little grounding game might help: we notice what's around us, together. Want to try?",
+    "anim": "lean",
+    "tag": "ground"
+  },
+  {
+    "id": "of_worry1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "Sometimes it helps to put a worry down. Want to feed it to me? I'll eat it, and nothing is saved.",
+    "anim": "lean",
+    "tag": "worry"
+  },
+  {
+    "id": "of_turtle1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "Old Turtle at the beach is a very good listener. Want to go sit with him?",
+    "anim": "lean",
+    "tag": "turtle"
+  },
+  {
+    "id": "of_meadow1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "There's a quiet meadow where the clouds move slowly. Want to go lie there with me?",
+    "anim": "lean",
+    "tag": "meadow"
+  },
+  {
+    "id": "of_beach1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "A little walk might shake it off. Want to wander to the beach with me?",
+    "anim": "perk",
+    "tag": "beach"
+  },
+  {
+    "id": "of_tasks1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "Would one tiny thing help today? I picked some very small ones.",
+    "anim": "lean",
+    "tag": "tasks"
+  },
+  {
+    "id": "of_stretch1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "A gentle stretch can wake the body up a bit. Want to stretch with me? I'm an expert.",
+    "anim": "lean",
+    "tag": "stretch"
+  },
+  {
+    "id": "of_play1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "Want to play with me? I've been saving my best pounce.",
+    "anim": "perk",
+    "tag": "play"
+  },
+  {
+    "id": "of_goodthing1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "Want to tell me one good thing from today? Even a tiny one.",
+    "anim": "lean",
+    "tag": "goodthing"
+  },
+  {
+    "id": "of_reach1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "Is there someone who'd be glad to hear from you? I can help you write a little message.",
+    "anim": "lean",
+    "tag": "reach"
+  },
+  {
+    "id": "of_winddown1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "It's late, and you sound {word}. Want to wind down for sleep together?",
+    "anim": "lean",
+    "tag": "winddown"
+  },
+  {
+    "id": "of_couch1",
+    "speaker": "cat",
+    "context": "offer",
+    "text": "Want to just watch me wander around the islands? You don't have to do anything.",
+    "anim": "lean",
+    "tag": "couch"
+  },
+  {
+    "id": "aft1",
+    "speaker": "cat",
+    "context": "after",
+    "text": "How do you feel now, compared to before?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "A bit better 🌤️",
+        "effect": "after:better"
+      },
+      {
+        "label": "About the same",
+        "effect": "after:same"
+      },
+      {
+        "label": "Worse",
+        "effect": "after:worse"
+      }
+    ]
+  },
+  {
+    "id": "aft2",
+    "speaker": "cat",
+    "context": "after",
+    "text": "Did that change anything, even a little?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "A bit better 🌤️",
+        "effect": "after:better"
+      },
+      {
+        "label": "About the same",
+        "effect": "after:same"
+      },
+      {
+        "label": "Worse",
+        "effect": "after:worse"
+      }
+    ]
+  },
+  {
+    "id": "afb1",
+    "speaker": "cat",
+    "context": "after_better",
+    "text": "I'm really glad. You did that.",
+    "anim": "purr"
+  },
+  {
+    "id": "afb2",
+    "speaker": "cat",
+    "context": "after_better",
+    "text": "Even a little lighter is worth it. Well done.",
+    "anim": "purr"
+  },
+  {
+    "id": "afb3",
+    "speaker": "cat",
+    "context": "after_better",
+    "text": "That's lovely to hear. Let's remember that this helped.",
+    "anim": "purr"
+  },
+  {
+    "id": "afs1",
+    "speaker": "cat",
+    "context": "after_same",
+    "text": "That's okay. Not everything shifts right away.",
+    "anim": "lean"
+  },
+  {
+    "id": "afs2",
+    "speaker": "cat",
+    "context": "after_same",
+    "text": "Thank you for trying anyway. That counts.",
+    "anim": "lean"
+  },
+  {
+    "id": "afw1",
+    "speaker": "cat",
+    "context": "after_worse",
+    "text": "I'm sorry it feels worse. I'm right here with you.",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Talk to me 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Rest together 💤",
+        "effect": "rest"
+      },
+      {
+        "label": "🛟 Help",
+        "effect": "help:1"
+      }
+    ]
+  },
+  {
+    "id": "afw2",
+    "speaker": "cat",
+    "context": "after_worse",
+    "text": "Thank you for telling me. Let's go gently.",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Talk to me 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Rest together 💤",
+        "effect": "rest"
+      },
+      {
+        "label": "🛟 Help",
+        "effect": "help:1"
+      }
+    ]
+  },
+  {
+    "id": "gh1",
+    "speaker": "cat",
+    "context": "good_heard",
+    "text": "That's lovely. I'm keeping that one warm for you, just for today.",
+    "anim": "purr"
+  },
+  {
+    "id": "gh2",
+    "speaker": "cat",
+    "context": "good_heard",
+    "text": "Oh, I like that one. Good things count, even small ones.",
+    "anim": "wiggle"
+  },
+  {
+    "id": "gh3",
+    "speaker": "cat",
+    "context": "good_heard",
+    "text": "Thank you for telling me. That made my tail curl happily.",
+    "anim": "purr"
+  },
+  {
+    "id": "pl1",
+    "speaker": "cat",
+    "context": "play_start",
+    "text": "Ready? Tap the floor and I'll chase the yarn!",
+    "anim": "perk"
+  },
+  {
+    "id": "pl2",
+    "speaker": "cat",
+    "context": "play_start",
+    "text": "Throw it anywhere on the floor. I'm very fast. Mostly.",
+    "anim": "perk"
+  },
+  {
+    "id": "pe1",
+    "speaker": "cat",
+    "context": "play_end",
+    "text": "Phew! That was fun. Thank you for playing with me.",
+    "anim": "purr"
+  },
+  {
+    "id": "pe2",
+    "speaker": "cat",
+    "context": "play_end",
+    "text": "I'm all tumbled out. Best game.",
+    "anim": "purr"
+  },
+  {
+    "id": "gr1",
+    "speaker": "cat",
+    "context": "ground_end",
+    "text": "You're here, right now, with me. That's what grounding is.",
+    "anim": "lean"
+  },
+  {
+    "id": "gr2",
+    "speaker": "cat",
+    "context": "ground_end",
+    "text": "Well done. Noticing the world around you is a real skill.",
+    "anim": "purr"
+  },
+  {
+    "id": "se1",
+    "speaker": "cat",
+    "context": "stretch_end",
+    "text": "Ahh. My whole spine is happy. Is yours?",
+    "anim": "purr"
+  },
+  {
+    "id": "se2",
+    "speaker": "cat",
+    "context": "stretch_end",
+    "text": "Good stretch. Cats recommend doing that after every nap.",
+    "anim": "wiggle"
+  },
+  {
+    "id": "wd1",
+    "speaker": "cat",
+    "context": "winddown",
+    "text": "Let's slow everything down. Phone a little dimmer, breaths a little longer.",
+    "anim": "curl"
+  },
+  {
+    "id": "rc1",
+    "speaker": "cat",
+    "context": "reach_done",
+    "text": "That was brave. Whatever they answer, you reached out.",
+    "anim": "purr"
   }
 ]

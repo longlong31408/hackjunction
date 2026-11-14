@@ -9,7 +9,7 @@ export default class HomeScene extends Phaser.Scene {
   create() {
     this.energy = 3; this.override = null;
     this.bg = this.add.image(360, 640, isNight() ? 'roomNight' : 'room');
-    this.cat = this.add.image(CAT.x, CAT.y, 'cat3').setOrigin(0.5, 0.85).setInteractive({ useHandCursor: true });
+    this.cat = this.add.sprite(CAT.x, CAT.y, 'cat3').setOrigin(0.5, 0.85).setInteractive({ useHandCursor: true });
     this.cat.on('pointerdown', () => { this.burst('heart', 4); this.game.events.emit('catTapped'); });
 
     this.zzz = this.add.particles(0, 0, 'heart', { emitting: false });   // reused emitter for hearts / sparks
@@ -45,7 +45,9 @@ export default class HomeScene extends Phaser.Scene {
     if (!cat) return;
     this.tweens.killTweensOf(cat);
     cat.setPosition(CAT.x, CAT.y).setScale(1).setAngle(0).setFlipX(false);
-    const key = this.override ? { listen: 'catListen', eat: 'catEat', happy: 'catHappy', rest: 'cat1' }[this.override] : 'cat' + this.energy;
+    if (this.playing) return;
+    cat.stop();
+    const key = this.override ? ({ listen: 'catListen', eat: 'catEat', happy: 'catHappy', rest: 'cat1', stretch: 'catHappy' }[this.override] || 'cat3') : 'cat' + this.energy;
     cat.setTexture(key);
     if (this.reduceMotion()) return;
     // breathing idle (slower when sleepy)
@@ -100,6 +102,50 @@ export default class HomeScene extends Phaser.Scene {
         this.time.delayedCall(2200, () => { this.setPose(null); onDone?.(); });
       },
     });
+  }
+
+  // ---------------------------------------------------------------- play: tap the floor, the cat chases the yarn
+  startPlay(onEnd) {
+    this.playing = true;
+    this.tweens.killTweensOf(this.cat);
+    this.yarn = this.add.image(500, 975, 'yarn').setScale(1.2);
+    this.cat.setTexture('catHappy').setScale(1).setAngle(0).setPosition(CAT.x, CAT.y).setOrigin(0.5, 0.85);
+    this.playTap = (p) => this.throwYarn(p.worldX, p.worldY);
+    this.input.on('pointerdown', this.playTap);
+    this.playEnd = this.time.delayedCall(60000, () => onEnd?.());
+  }
+
+  throwYarn(x, y) {
+    if (!this.playing) return;
+    x = Phaser.Math.Clamp(x, 110, 610); y = Phaser.Math.Clamp(y, 915, 1010);
+    const fast = this.reduceMotion() ? 0 : 1;
+    this.tweens.killTweensOf(this.yarn);
+    this.tweens.add({ targets: this.yarn, x, y, angle: this.yarn.angle + 540, duration: 500 * fast + 1, ease: 'Quad.out' });
+    const dir = x < this.cat.x ? -1 : 1;
+    const tx = x - dir * 70;
+    const dist = Math.abs(tx - this.cat.x) + Math.abs(y - this.cat.y);
+    this.tweens.killTweensOf(this.cat);
+    this.cat.setFlipX(dir < 0).setScale(1.615).setOrigin(0.5, 176 / 200);
+    if (fast) this.cat.play('walk'); else this.cat.setTexture('walk0');
+    this.tweens.add({
+      targets: this.cat, x: tx, y, duration: Math.max(200, dist * 2.2 * fast), ease: 'Sine.inOut',
+      onComplete: () => {
+        if (!this.playing) return;
+        this.cat.stop(); this.cat.setTexture('cat4').setScale(1).setOrigin(0.5, 0.85);   // pounce!
+        this.burst('heart', 2);
+        this.game.events.emit('catPlayed');
+      },
+    });
+  }
+
+  stopPlay() {
+    if (!this.playing) return;
+    this.playing = false;
+    this.input.off('pointerdown', this.playTap);
+    this.playEnd?.remove();
+    this.yarn?.destroy(); this.yarn = null;
+    this.cat.setFlipX(false);
+    this.idle();
   }
 
   /** Help mode: scene dims to warm lantern light (never red, never alarming). */

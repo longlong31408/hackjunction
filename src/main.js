@@ -8,7 +8,9 @@ import { checkSafety } from './brain/safety.js';
 import { pickLine } from './brain/dialogue.js';
 import { startDirector, notNow, setQuiet, noteInteraction, directorStatus } from './brain/director.js';
 import { quickValence } from './brain/words.js';
-import { detectTopic, isNegativeTopic } from './brain/topics.js';
+import { isNegativeTopic } from './brain/topics.js';
+import { understand } from './brain/understand.js';
+import { respond, offer, another, summaryAnswer, afterActivity, afterAnswer, memory } from './brain/conversation.js';
 import { showBubble, hideBubble, bubbleOpen, catThinking, setLoader, toast, openPanel, panelOpen, closePanel, setSenses, el } from './ui/hud.js';
 import { showHelp, helpOpen } from './ui/help.js';
 import { startOnboarding } from './ui/onboarding.js';
@@ -18,6 +20,7 @@ import { load, save } from './storage.js';
 import { installPrivacy, sensesPaused } from './ui/privacy.js';
 import { installFeatures } from './ui/features.js';
 import { installExtras } from './ui/extras.js';
+import { installActivities } from './ui/activities.js';
 
 const $ = (id) => document.getElementById(id);
 export let saved = load();
@@ -97,14 +100,12 @@ export async function hear(text, { valence = null, loudness = null, getValence =
   if (risk >= 2) { hideBubble(); return openHelp(risk); }
   if (valence == null && getValence) valence = await getValence();
   if (valence == null) valence = quickValence(text);
-  const found = detectTopic(text);                      // what are they telling me about?
-  update({ text, valence, loudness, topic: found?.topic });
+  const a = understand(text);                           // feeling, life area, intensity, effort…
+  update({ text, valence, loudness, topic: a.topic });
   remember();
-  let line;
-  if (risk === 1) line = pickLine('gentle_check', state);
-  else if (found) line = pickLine('reply', state, 'cat', found.topic, { word: found.word });
-  if (!line) line = pickLine('reply', state, 'cat');
-  if (found && isNegativeTopic(found.topic) && found.topic !== 'bored') home()?.setPose(null);   // no zoomies right now
+  // Level-1 concern: the cat gently asks about safety (no jokes). Otherwise: reflect → validate → one next move.
+  const line = risk === 1 ? pickLine('gentle_check', state) : respond(text, state, a);
+  if (a.topic && isNegativeTopic(a.topic) && a.topic !== 'bored') game.events.emit('comfort', a.topic);   // the cat comes close
   say(line, { quote: text, chip: risk === 1, onChip: () => openHelp(1) });
   noteInteraction();
 }
@@ -229,12 +230,35 @@ export const effects = {
   talk: () => { toast('Hold 🎙️ Talk (or tap it) and tell me ⌨️ works too'); talk.classList.add('rec'); setTimeout(() => !isRecording() && talk.classList.remove('rec'), 1200); },
   stay: () => stayWithMe(),
   rest: () => restTogether(),
+  type: () => openTypeBox(),
+  more: () => say(another(state)),
+  summary_yes: () => say(summaryAnswer(true, state)),
+  summary_no: () => say(summaryAnswer(false, state)),
   turtle: () => { showScene('World'); world().visitNpc('turtle'); },
   reassure: () => sayCtx('reassure'),
 };
 export function registerEffect(name, fn) { effects[name] = fn; }
 const settingsExtras = [];   // features add their own rows to ⚙️ Settings
 export function addSettings(fn) { settingsExtras.push(fn); }
+
+/** Run a suggested activity; when it finishes, the cat checks in on how it went. */
+export function startActivity(id) {
+  memory.done.add(id);
+  const run = activities[id];
+  if (!run) return;
+  run(() => setTimeout(() => { if (!helpOpen()) say(afterActivity(id, state)); }, 2500));
+}
+export const activities = {
+  rest: () => restTogether(),
+  breathe: (done) => effects.breathe?.(done),
+  worry: (done) => effects.worry?.(done),
+  tasks: (done) => effects.tasks?.(done),
+  turtle: () => effects.turtle(),
+  meadow: () => lead('meadow'),
+  beach: () => lead('beach'),
+  couch: () => { showScene('World'); world().setCouch(true); },
+};
+export function registerActivity(id, fn) { activities[id] = fn; }
 
 export function lead(place) {
   if (place === 'home') { showScene('Home'); return say(pickLine('arrive', state, 'cat', 'home')); }
@@ -252,6 +276,8 @@ export function runEffect(effect, line) {
     else if (k === 'need') fields.need = v;
     else if (k === 'go') { lead(v); handled = true; }
     else if (k === 'help') { openHelp(Number(v)); handled = true; }
+    else if (k === 'act') { startActivity(v); handled = true; }
+    else if (k === 'after') { say(afterAnswer(v, state)); handled = true; }
     else if (effects[k]) { effects[k](line); handled = true; }
   }
   if (Object.keys(fields).length) {
@@ -337,10 +363,11 @@ export function begin() {
   setLoader(`${saved.name} is waking up…`);
   startCamera();
   if (!saved.settings.mic) setSenses({ mic: 'off' });
-  startDirector((line) => say(line), () => bubbleOpen() || panelOpen() || helpOpen() || isRecording());
+  startDirector((line) => say(line), () => bubbleOpen() || panelOpen() || helpOpen() || isRecording(), () => offer(state));
   installPrivacy({ startCamera, stopCamera, sayCtx, onSettingsChange: applySettings, settingsExtras: () => settingsExtras.flatMap((f) => f()) });
   installFeatures(app);
   installExtras(app);
+  installActivities(app);
   game.events.emit('begin');
 }
 
@@ -360,6 +387,7 @@ export function reloadSaved() { saved = load(); return saved; }
 /** What feature modules get to use (keeps them free of circular imports). */
 export const app = {
   game, say, sayCtx, home, world, showScene, currentScene, openHelp, openTypeBox, captureNextTalk, registerEffect, addSettings,
+  registerActivity, effects, restTogether,
   catName: () => saved.name, sound: null,
 };
 if (import.meta.env.DEV) window.mochi = { game, state, hear, say, openHelp, effects, aiStatus, runEffect };
