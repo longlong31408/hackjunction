@@ -19,8 +19,7 @@ export default class BootScene extends Phaser.Scene {
       this.anims.create({ key: 'walk', frames: [0, 1, 2, 3].map((i) => ({ key: 'walk' + i })), frameRate: 8, repeat: -1 });
       this.scene.launch('World');
       this.scene.sleep('World');
-      this.scene.start('Home');
-      this.game.events.emit('booted');
+      this.scene.start('Home');   // Home emits 'homeReady' once it has been created
     };
     if (!pngKeys.size) return finish();
     for (const [key, file] of Object.entries(manifest)) this.load.image(key, 'art/' + file);

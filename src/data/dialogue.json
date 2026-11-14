@@ -1429,5 +1429,47 @@
     "context": "couch",
     "text": "Sit back. I'll show you around.",
     "anim": "perk"
+  },
+  {
+    "id": "th1",
+    "speaker": "cat",
+    "context": "thanks",
+    "text": "Got it. Thank you for telling me 💛",
+    "anim": "nod"
+  },
+  {
+    "id": "th2",
+    "speaker": "cat",
+    "context": "thanks",
+    "text": "Okay! My whisker-radar is recalibrated.",
+    "anim": "wiggle"
+  },
+  {
+    "id": "th3",
+    "speaker": "cat",
+    "context": "thanks",
+    "text": "Thanks. You know you best.",
+    "anim": "nod"
+  },
+  {
+    "id": "mi1",
+    "speaker": "cat",
+    "context": "missed",
+    "text": "I didn't quite catch that. Try again, or type to me ⌨️",
+    "anim": "tilt"
+  },
+  {
+    "id": "mi2",
+    "speaker": "cat",
+    "context": "missed",
+    "text": "Mrrp? My ears missed it. Want to type instead? ⌨️",
+    "anim": "tilt"
+  },
+  {
+    "id": "wk1",
+    "speaker": "cat",
+    "context": "waking",
+    "text": "I'm still waking up my listening ears. You can type to me meanwhile ⌨️",
+    "anim": "curl"
   }
 ]

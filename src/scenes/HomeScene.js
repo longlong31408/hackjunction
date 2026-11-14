@@ -19,6 +19,7 @@ export default class HomeScene extends Phaser.Scene {
     this.idle();
     this.time.addEvent({ delay: 60000, loop: true, callback: () => this.refreshTime() });
     this.refreshTime();
+    this.game.events.emit('homeReady');
   }
 
   refreshTime() {
@@ -30,13 +31,13 @@ export default class HomeScene extends Phaser.Scene {
   /** The cat mirrors the user's energy (1 asleep in a box … 5 zoomies). */
   setEnergy(e) {
     this.energy = e;
-    if (!this.override) this.idle();
+    if (this.cat && !this.override) this.idle();
   }
 
   /** Temporary pose: 'listen' | 'eat' | 'happy' | null (back to the energy look). */
   setPose(pose) {
     this.override = pose;
-    this.idle();
+    if (this.cat) this.idle();
   }
 
   idle() {
@@ -59,7 +60,7 @@ export default class HomeScene extends Phaser.Scene {
 
   /** Small reaction animations named in the dialogue CSV ("anim" column). */
   play(anim) {
-    if (!anim || this.reduceMotion() || this.energy === 5) return;
+    if (!this.cat || !anim || this.reduceMotion() || this.energy === 5) return;
     const cat = this.cat;
     const done = () => this.idle();
     const t = { targets: cat, yoyo: true, duration: 220, onComplete: done };

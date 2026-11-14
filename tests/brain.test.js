@@ -103,3 +103,13 @@ describe('director', () => {
     expect(suggestPlace({ energy: 4, mood: 'neutral', need: 'distract' })).toBe('beach');
   });
 });
+
+import { quickValence } from '../src/brain/words.js';
+describe('quickValence (fallback before the model loads)', () => {
+  it('reads simple feelings', () => {
+    expect(quickValence('I feel happy and calm')).toBeGreaterThan(0);
+    expect(quickValence('so tired and lonely')).toBeLessThan(0);
+    expect(quickValence('not good')).toBeLessThan(0);
+    expect(quickValence('the bus was late')).toBeNull();
+  });
+});
