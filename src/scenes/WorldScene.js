@@ -48,8 +48,16 @@ export default class WorldScene extends Phaser.Scene {
     this.cat = this.add.sprite(PLACES.home.x, PLACES.home.y, 'cat3').setScale(IDLE_SCALE).setOrigin(0.5, 0.85);
     this.cameras.main.startFollow(this.cat, true, 0.08, 0.08);
 
-    this.nightRect = this.add.rectangle(0, 0, 720, 1280, 0x2a2660, 0).setOrigin(0).setScrollFactor(0).setDepth(20);
-    this.dimRect = this.add.rectangle(0, 0, 720, 1280, 0xffb070, 0).setOrigin(0).setScrollFactor(0).setDepth(21);
+    // Little moments while standing still: grooming, slow blinks, looking around.
+    this.time.addEvent({ delay: 9000, loop: true, callback: () => {
+      const c = this.cat;
+      if (!this.scene.isActive() || this.tweens.isTweening(c) || c.anims.isPlaying || this.reduceMotion()) return;
+      const key = ['catGroom', 'catBlink', 'catLookUp', 'catStretch'][Math.floor(Math.random() * 4)];
+      c.setTexture(key);
+      this.time.delayedCall(1800, () => { if (!this.tweens.isTweening(c) && !c.anims.isPlaying) c.setTexture('cat3'); });
+    } });
+    this.nightRect = this.add.rectangle(0, 0, 720, 1280, 0x2a2660, 1).setAlpha(0).setOrigin(0).setScrollFactor(0).setDepth(20);
+    this.dimRect = this.add.rectangle(0, 0, 720, 1280, 0xffb070, 1).setAlpha(0).setOrigin(0).setScrollFactor(0).setDepth(21);
     this.time.addEvent({ delay: 60000, loop: true, callback: () => this.refreshTime() });
     this.refreshTime();
 

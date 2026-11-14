@@ -98,6 +98,7 @@ export async function hear(text, { valence = null, loudness = null, getValence =
   if (!text) return sayCtx('missed');
   const risk = checkSafety(text);                       // ALWAYS FIRST
   if (risk >= 2) { hideBubble(); return openHelp(risk); }
+  game.events.emit('heard');                            // the cat stops what it's doing and listens
   if (valence == null && getValence) valence = await getValence();
   if (valence == null) valence = quickValence(text);
   const a = understand(text);                           // feeling, life area, intensity, effort…

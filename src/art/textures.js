@@ -72,6 +72,14 @@ export function catPose(key, coat, acc) {
       for (const r of [26, 46]) { ctx.beginPath(); ctx.arc(318, 120, r, -0.7, 0.5); ctx.stroke(); }
       break;
     case 'catEat': drawCat(ctx, { ...base, pose: 'eat' }); break;
+    case 'catGroom': drawCat(ctx, { ...base, pose: 'groom' }); break;
+    case 'catStretch': drawCat(ctx, { ...base, pose: 'stretch' }); break;
+    case 'catBack': drawCat(ctx, { ...base, pose: 'back' }); break;
+    case 'catKnead0': drawCat(ctx, { ...base, pose: 'knead', phase: 0 }); break;
+    case 'catKnead1': drawCat(ctx, { ...base, pose: 'knead', phase: 1 }); break;
+    case 'catCrouch': drawCat(ctx, { ...base, pose: 'crouch' }); break;
+    case 'catLookUp': drawCat(ctx, { ...base, pose: 'sit', tilt: -0.32 }); break;
+    case 'catBlink': drawCat(ctx, { ...base, pose: 'sit', expr: 'sleep' }); break;
     case 'catHappy': drawCat(ctx, { ...base, pose: 'sit', expr: 'happy' }); break;
     default: drawCat(ctx, { ...base, pose: 'sit' });
   }
@@ -355,7 +363,8 @@ export function particle(kind) {
   return cv;
 }
 
-export const CAT_KEYS = ['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'catListen', 'catEat', 'catHappy'];
+export const CAT_KEYS = ['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'catListen', 'catEat', 'catHappy',
+  'catGroom', 'catStretch', 'catBack', 'catKnead0', 'catKnead1', 'catCrouch', 'catLookUp', 'catBlink'];
 
 /** Register every generated texture that wasn't already loaded from public/art. */
 export function registerArt(scene, look = {}) {

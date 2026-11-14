@@ -161,6 +161,42 @@ export function drawCat(ctx, o) {
     neckAcc(ctx, o.acc, 3, -26, 26);
     const eat = pose === 'eat';
     head(ctx, c, { ...o, expr: eat ? 'eat' : o.expr }, eat ? 9 : 3, eat ? -32 : -39, 1, eat ? 0.22 : (o.tilt || 0));
+  } else if (pose === 'groom') {   // paw up to the face, eyes closed, a tiny pink tongue
+    tail(ctx, c, [-13, -5, -30, -6, -32, -24, -24, -34], 5.5);
+    ell(ctx, 0, -15, 16, 15, 0, c.body);
+    ell(ctx, 4, -12, 9, 9.5, 0, c.belly, false);
+    ell(ctx, -4, -1.5, 5, 3.2, 0, c.tux ? c.belly : c.body);
+    neckAcc(ctx, o.acc, 3, -26, 26);
+    head(ctx, c, { ...o, expr: 'sleep' }, 5, -37, 1, 0.28);
+    ctx.fillStyle = '#F48FA0'; ell(ctx, 13, -27, 2.2, 1.6, 0, '#F48FA0', false);
+    ell(ctx, 14, -24, 4.6, 6, -0.3, c.tux ? c.belly : c.body);   // the raised paw
+  } else if (pose === 'stretch') {   // play bow: front low, bottom up
+    tail(ctx, c, [-18, -24, -26, -34, -20, -46, -12, -50], 5.5);
+    leg(ctx, c, -14, -16, 16, 6, true); leg(ctx, c, -8, -16, 16, 6, false);
+    ctx.save(); ctx.translate(0, -16); ctx.rotate(0.32); ell(ctx, 0, 0, 20, 9.5, 0, c.body); ell(ctx, 5, 4, 11, 4, 0, c.belly, false); ctx.restore();
+    for (const lx of [10, 15]) { ctx.fillStyle = c.tux ? c.belly : c.body; rr(ctx, lx, -4, 18, 5.5, 2.75); ctx.fill(); ctx.stroke(); }
+    head(ctx, c, { ...o, expr: 'squint' }, 24, -16, 0.85, 0.15);
+  } else if (pose === 'back') {      // rolled over, paws up, belly out
+    tail(ctx, c, [-20, -8, -30, -4, -32, -16, -26, -22], 5);
+    for (const [px, py] of [[-12, -22], [-4, -25]]) ell(ctx, px, py, 4, 5.5, 0, c.tux ? c.belly : c.body);
+    ell(ctx, 0, -11, 21, 11, 0, c.body);
+    ell(ctx, 0, -14, 14, 6.5, 0, c.belly, false);
+    for (const [px, py] of [[8, -25], [14, -22]]) ell(ctx, px, py, 4, 5.5, 0.3, c.tux ? c.belly : c.body);
+    head(ctx, c, { ...o, expr: 'happy' }, 24, -12, 0.85, -0.5);
+  } else if (pose === 'knead') {     // making biscuits: front paws pressing in turn
+    tail(ctx, c, [-18, -6, -24, 2, -6, 3, 10, 0], 5);
+    ell(ctx, 0, -11, 22, 11, 0, c.body);
+    ell(ctx, 8, -6, 9, 4.5, 0, c.belly, false);
+    const k = o.phase || 0;
+    ell(ctx, 16, k ? -6 : -2.5, 4.5, 3.5, 0, c.tux ? c.belly : c.body);
+    ell(ctx, 24, k ? -2.5 : -6, 4.5, 3.5, 0, c.tux ? c.belly : c.body);
+    neckAcc(ctx, o.acc, 11, -16, 22);
+    head(ctx, c, { ...o, expr: 'happy' }, 10, -27, 0.92, 0);
+  } else if (pose === 'crouch') {    // getting ready to pounce, bottom wiggle
+    tail(ctx, c, [-16, -8, -28, -10, -34, -6, -40, -12], 5);
+    ell(ctx, -2, -9, 20, 8, 0.12, c.body);
+    for (const lx of [-12, 10]) { ctx.fillStyle = c.body; rr(ctx, lx, -4, 9, 4.5, 2.2); ctx.fill(); ctx.stroke(); }
+    head(ctx, c, { ...o, expr: 'surprised' }, 17, -17, 0.88, 0);
   } else if (pose === 'loaf') {
     tail(ctx, c, [-18, -6, -24, 2, -6, 3, 10, 0], 5);
     ell(ctx, 0, -11, 22, 11, 0, c.body);

@@ -14,6 +14,7 @@ export function installExtras(app) {
   app.sound = (kind) => play(kind);
   app.game.events.on('said', (line) => { if (line.id !== '__thinking') play('pop'); });
   app.game.events.on('catTapped', () => play(Math.random() < 0.5 ? 'meow' : 'purr'));
+  app.game.events.on('purr', () => play('purr'));
   // Browsers only allow audio after a tap: start music on the first one (it's after onboarding's button).
   const unlock = () => { initSound(); if (load().settings.music) setMusic(true); };
   unlock();
