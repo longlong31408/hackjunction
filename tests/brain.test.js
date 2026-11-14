@@ -113,3 +113,17 @@ describe('quickValence (fallback before the model loads)', () => {
     expect(quickValence('the bus was late')).toBeNull();
   });
 });
+
+import { todaysTasks } from '../src/ui/features.js';
+describe('daily tasks', () => {
+  it('always offers 3 tasks sized to the energy level', () => {
+    for (let e = 1; e <= 5; e++) {
+      const list = todaysTasks(e, new Date(2026, 10, 14));
+      expect(list).toHaveLength(3);
+      for (const t of list) expect(e).toBeGreaterThanOrEqual(t.energy[0] - 1);
+    }
+  });
+  it('is the same list all day', () => {
+    expect(todaysTasks(2, new Date(2026, 10, 14, 9)).map((t) => t.id)).toEqual(todaysTasks(2, new Date(2026, 10, 14, 21)).map((t) => t.id));
+  });
+});

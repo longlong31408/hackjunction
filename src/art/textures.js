@@ -331,9 +331,11 @@ export function sheep() {
   ctx.translate(150, 250); ctx.scale(2.4, 2.4); ctx.strokeStyle = OUT; ctx.lineWidth = 2.4;
   ctx.fillStyle = 'rgba(91,70,54,0.12)'; ctx.beginPath(); ctx.ellipse(0, 4, 30, 4, 0, 0, 7); ctx.fill();
   ctx.fillStyle = '#6B6575'; for (const lx of [-16, -6, 8, 18]) { rr(ctx, lx, -14, 5, 14, 2); ctx.fill(); }
-  ctx.fillStyle = '#FFFFFF';
-  ctx.beginPath(); for (const [x, y, r] of [[-22, -30, 14], [-8, -42, 16], [10, -40, 15], [24, -28, 13], [0, -24, 18]]) { ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, 7); } ctx.fill();
-  ctx.strokeStyle = 'rgba(91,70,54,0.35)'; ctx.stroke();
+  const puffs = [[-22, -30, 14], [-8, -42, 16], [10, -40, 15], [24, -28, 13], [0, -24, 18]];
+  ctx.beginPath(); for (const [x, y, r] of puffs) { ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, 7); }
+  ctx.strokeStyle = 'rgba(91,70,54,0.55)'; ctx.lineWidth = 4.4; ctx.stroke();   // outline first…
+  ctx.fillStyle = '#FFFFFF'; ctx.fill();                                         // …then fill, so only the silhouette shows
+  ctx.lineWidth = 2.4;
   ctx.strokeStyle = OUT; ctx.fillStyle = '#8A8396'; ctx.beginPath(); ctx.ellipse(30, -36, 10, 12, 0.2, 0, 7); ctx.fill(); ctx.stroke();
   ctx.lineWidth = 1.6; ctx.strokeStyle = '#FFF6E9'; ctx.beginPath(); ctx.arc(28, -38, 2.4, 0.15 * Math.PI, 0.85 * Math.PI); ctx.arc(35, -38, 2.4, 0.15 * Math.PI, 0.85 * Math.PI); ctx.stroke();
   ctx.fillStyle = '#FF9DA7'; ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(26, -31, 2.2, 0, 7); ctx.arc(37, -31, 2.2, 0, 7); ctx.fill();

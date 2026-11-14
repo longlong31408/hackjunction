@@ -15,6 +15,7 @@ import { startFace } from './sensing/face.js';
 import { initMic, startRecording, stopRecording, isRecording } from './sensing/mic.js';
 import { load, save } from './storage.js';
 import { installPrivacy, sensesPaused } from './ui/privacy.js';
+import { installFeatures } from './ui/features.js';
 
 const $ = (id) => document.getElementById(id);
 export let saved = load();
@@ -35,6 +36,7 @@ let view = 'Home';
 export function showScene(name) {
   $('homeBtn').classList.toggle('on', name === 'Home');
   $('mapBtn').classList.toggle('on', name === 'World');
+  document.body.classList.toggle('world', name === 'World');
   if (view === name) return;
   game.scene.sleep(view); game.scene.wake(name); view = name;
 }
@@ -101,6 +103,9 @@ export async function hear(text, { valence = null, loudness = null, getValence =
 }
 
 const talk = $('talkBtn');
+let nextTalk = null;
+/** Send the next recording somewhere else (e.g. to the worry-eating cat) instead of the conversation. */
+export function captureNextTalk(fn) { nextTalk = fn; }
 let pressAt = 0, pointerDown = false;
 const TALK_LABEL = '🎙️ Talk';
 
@@ -143,7 +148,9 @@ async function finishTalk() {
   try {
     const res = await askAI({ type: 'transcribe', audio }, [audio.buffer]);   // the buffer is moved, then discarded
     catThinking(false); home()?.setPose(null);
-    hear(res.text, { valence: res.valence, loudness });
+    const target = nextTalk; nextTalk = null;
+    if (target) target(res.text);
+    else hear(res.text, { valence: res.valence, loudness });
   } catch {
     catThinking(false); home()?.setPose(null); sayCtx('missed');
   }
@@ -312,6 +319,7 @@ export function begin() {
   if (!saved.settings.mic) setSenses({ mic: 'off' });
   startDirector((line) => say(line), () => bubbleOpen() || panelOpen() || helpOpen() || isRecording());
   installPrivacy({ startCamera, stopCamera, sayCtx, onSettingsChange: applySettings, settingsExtras: () => settingsExtras.flatMap((f) => f()) });
+  installFeatures(app);
   game.events.emit('begin');
 }
 
@@ -327,4 +335,10 @@ game.events.once('homeReady', () => {
 });
 
 export function reloadSaved() { saved = load(); return saved; }
-if (import.meta.env.DEV) window.mochi = { game, state, hear, say, openHelp, effects, aiStatus };
+
+/** What feature modules get to use (keeps them free of circular imports). */
+export const app = {
+  say, sayCtx, home, world, showScene, currentScene, openHelp, openTypeBox, captureNextTalk, registerEffect, addSettings,
+  catName: () => saved.name, sound: null,
+};
+if (import.meta.env.DEV) window.mochi = { game, state, hear, say, openHelp, effects, aiStatus, runEffect };

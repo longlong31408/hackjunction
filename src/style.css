@@ -35,6 +35,12 @@ a { color: inherit; }
 #helpBtn { background: #FFFFFF !important; border: 2.5px solid var(--cocoa) !important; }
 body.onboarding #pauseBtn, body.onboarding #settingsBtn, body.onboarding #senses { visibility: hidden; }
 
+#worryBtn {
+  position: fixed; top: calc(var(--top) + 64px); left: 12px; z-index: 20; border: 2px solid var(--cocoa); background: var(--paper);
+  border-radius: 999px; padding: 6px 12px; font-weight: 800; box-shadow: var(--shadow); min-height: 40px;
+}
+body.world #worryBtn, body.onboarding #worryBtn { display: none; }
+
 /* ---------- loader ---------- */
 #loader {
   position: fixed; top: calc(var(--top) + 62px); left: 50%; transform: translateX(-50%); z-index: 55; background: var(--paper);
