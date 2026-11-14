@@ -491,7 +491,7 @@
     "id": "r4",
     "speaker": "cat",
     "context": "reply",
-    "text": "Mm. I'm listening with both ears. Both!",
+    "text": "I'm listening. Take all the time you need.",
     "anim": "lean",
     "mood": [
       "heavy"
@@ -581,7 +581,7 @@
     "id": "r11",
     "speaker": "cat",
     "context": "reply",
-    "text": "Okay! I'll remember that for, um, at least five minutes.",
+    "text": "Mm-hm. I'm really glad you told me.",
     "anim": "wiggle",
     "mood": [
       "neutral"
@@ -1470,6 +1470,485 @@
     "speaker": "cat",
     "context": "waking",
     "text": "I'm still waking up my listening ears. You can type to me meanwhile ⌨️",
+    "anim": "curl"
+  },
+  {
+    "id": "rt1",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Really {word}… that sounds draining. You don't have to do anything right now.",
+    "anim": "curl",
+    "choices": [
+      {
+        "label": "Rest with me 💤",
+        "effect": "rest"
+      },
+      {
+        "label": "Tell you more 🎙️",
+        "effect": "talk"
+      }
+    ],
+    "tag": "tired"
+  },
+  {
+    "id": "rt2",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "When you're this {word}, even small things take a lot. I'm glad you still came to see me.",
+    "anim": "lean",
+    "tag": "tired"
+  },
+  {
+    "id": "rt3",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Let's make it a soft day. Want to lie in the meadow with me and do absolutely nothing?",
+    "anim": "curl",
+    "choices": [
+      {
+        "label": "Rest in the meadow ☁️",
+        "effect": "go:meadow"
+      },
+      {
+        "label": "Rest here 💤",
+        "effect": "rest"
+      }
+    ],
+    "tag": "tired"
+  },
+  {
+    "id": "rt4",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Being {word} is your body asking for kindness. Maybe a sip of water, then a rest?",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Rest with me 💤",
+        "effect": "rest"
+      },
+      {
+        "label": "Water together 💧",
+        "effect": "tasks"
+      }
+    ],
+    "tag": "tired"
+  },
+  {
+    "id": "rt5",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "I'll curl up right next to you. We can be {word} together, quietly.",
+    "anim": "curl",
+    "choices": [
+      {
+        "label": "Rest with me 💤",
+        "effect": "rest"
+      },
+      {
+        "label": "Tell you more 🎙️",
+        "effect": "talk"
+      }
+    ],
+    "tag": "tired"
+  },
+  {
+    "id": "rs1",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "I'm so sorry you're feeling {word}. I'm right here next to you.",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Tell you about it 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Just sit with me",
+        "effect": "rest"
+      }
+    ],
+    "tag": "sad"
+  },
+  {
+    "id": "rs2",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That sounds really hard. Do you want to tell me what happened, or just sit together for a bit?",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Sit together",
+        "effect": "rest"
+      }
+    ],
+    "tag": "sad"
+  },
+  {
+    "id": "rs3",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Feeling {word} makes sense sometimes. You don't have to cheer up for me.",
+    "anim": "curl",
+    "tag": "sad"
+  },
+  {
+    "id": "rs4",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "I'm staying close. Want to listen to the waves with Old Turtle? He's very gentle.",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Go with you 🐢",
+        "effect": "go:beach"
+      },
+      {
+        "label": "Stay here",
+        "effect": "rest"
+      }
+    ],
+    "tag": "sad"
+  },
+  {
+    "id": "rl1",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Feeling {word} really hurts. I'm glad you told me, and I'm here with you right now.",
+    "anim": "lean",
+    "tag": "lonely"
+  },
+  {
+    "id": "rl2",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "You're not on your own in this moment. I'm right here, purring quietly next to you.",
+    "anim": "purr",
+    "choices": [
+      {
+        "label": "Tell you more 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Just stay",
+        "effect": "rest"
+      }
+    ],
+    "tag": "lonely"
+  },
+  {
+    "id": "rl3",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Is there one person you could send a tiny 'hi' to later? Only if it feels okay.",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Maybe later",
+        "effect": "ok"
+      },
+      {
+        "label": "Tell you about it 🎙️",
+        "effect": "talk"
+      }
+    ],
+    "tag": "lonely"
+  },
+  {
+    "id": "rl4",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Want some company at the beach? Old Turtle loves visitors.",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Visit Turtle 🐢",
+        "effect": "go:beach"
+      },
+      {
+        "label": "Stay with you",
+        "effect": "rest"
+      }
+    ],
+    "tag": "lonely"
+  },
+  {
+    "id": "rx1",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That sounds like a lot to carry at once. Want to breathe slowly with me for a minute?",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Breathe with you 🫁",
+        "effect": "breathe"
+      },
+      {
+        "label": "Tell you more 🎙️",
+        "effect": "talk"
+      }
+    ],
+    "tag": "stressed"
+  },
+  {
+    "id": "rx2",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "When everything feels {word}, it helps to put one thing down. Want to feed me that worry?",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Feed you the worry 😋",
+        "effect": "worry"
+      },
+      {
+        "label": "Not right now",
+        "effect": "ok"
+      }
+    ],
+    "tag": "stressed"
+  },
+  {
+    "id": "rx3",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "You don't have to fix it all today. Let's just get through the next few minutes together.",
+    "anim": "curl",
+    "tag": "stressed"
+  },
+  {
+    "id": "rx4",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Being {word} is so tiring. Tell me the biggest part, if you want.",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Breathe first 🫁",
+        "effect": "breathe"
+      }
+    ],
+    "tag": "stressed"
+  },
+  {
+    "id": "ra1",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That sounds really frustrating. It's okay to feel {word}.",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Tell you what happened 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Let it go for now",
+        "effect": "ok"
+      }
+    ],
+    "tag": "angry"
+  },
+  {
+    "id": "ra2",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That would make my tail puff up too. Want to tell me what happened?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Not now",
+        "effect": "ok"
+      }
+    ],
+    "tag": "angry"
+  },
+  {
+    "id": "ra3",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Feeling {word} makes sense. Want to walk it off at the beach with me?",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "Walk with you 🏖️",
+        "effect": "go:beach"
+      },
+      {
+        "label": "Stay here",
+        "effect": "ok"
+      }
+    ],
+    "tag": "angry"
+  },
+  {
+    "id": "ra4",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Let's take one slow breath before anything else. I'll do it with you.",
+    "anim": "curl",
+    "choices": [
+      {
+        "label": "Breathe with you 🫁",
+        "effect": "breathe"
+      }
+    ],
+    "tag": "angry"
+  },
+  {
+    "id": "rb1",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Bored? I know a beach with a very chatty turtle.",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "Show me 🏖️",
+        "effect": "go:beach"
+      },
+      {
+        "label": "Stay here",
+        "effect": "ok"
+      }
+    ],
+    "tag": "bored"
+  },
+  {
+    "id": "rb2",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Ooh, I have an idea: three tiny tasks, then a nap.",
+    "anim": "wiggle",
+    "choices": [
+      {
+        "label": "Show me 🧶",
+        "effect": "tasks"
+      },
+      {
+        "label": "Nah",
+        "effect": "ok"
+      }
+    ],
+    "tag": "bored"
+  },
+  {
+    "id": "rb3",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Boredom is your brain asking for something new. Want to explore the meadow?",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "Explore ☁️",
+        "effect": "go:meadow"
+      },
+      {
+        "label": "Stay here",
+        "effect": "ok"
+      }
+    ],
+    "tag": "bored"
+  },
+  {
+    "id": "rb4",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "I could chase my tail for you. Or we could go exploring?",
+    "anim": "wiggle",
+    "choices": [
+      {
+        "label": "Exploring 🗺️",
+        "effect": "go:meadow"
+      },
+      {
+        "label": "Tail, please",
+        "effect": "ok"
+      }
+    ],
+    "tag": "bored"
+  },
+  {
+    "id": "rh1",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Yay, that's so good to hear! Tell me the best part?",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Later",
+        "effect": "ok"
+      }
+    ],
+    "tag": "happy"
+  },
+  {
+    "id": "rh2",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That made my whiskers wiggle. I love hearing that.",
+    "anim": "wiggle",
+    "tag": "happy"
+  },
+  {
+    "id": "rh3",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Look at you! Want to celebrate with a walk to the beach?",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "Let's go 🏖️",
+        "effect": "go:beach"
+      },
+      {
+        "label": "Stay cozy",
+        "effect": "ok"
+      }
+    ],
+    "tag": "happy"
+  },
+  {
+    "id": "rh4",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Happy you, happy cat. I'm purring very loudly.",
+    "anim": "purr",
+    "tag": "happy"
+  },
+  {
+    "id": "rest1",
+    "speaker": "cat",
+    "context": "rest",
+    "text": "Okay. I'll curl up right here and keep you warm. 💤",
+    "anim": "curl"
+  },
+  {
+    "id": "rest2",
+    "speaker": "cat",
+    "context": "rest",
+    "text": "Shh. Nothing to do now. Just rest, I'll stay close.",
+    "anim": "curl"
+  },
+  {
+    "id": "rest3",
+    "speaker": "cat",
+    "context": "rest",
+    "text": "Resting together. I won't ask you anything for a while.",
     "anim": "curl"
   }
 ]

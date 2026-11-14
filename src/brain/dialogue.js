@@ -4,11 +4,13 @@ const recent = [];              // ids of recently used lines, so the cat doesn'
 const RECENT_MAX = 30;
 
 // context: 'greeting' | 'confirm' | 'reply' | 'suggest_place' | 'task' | 'turtle' | ...
-export function pickLine(context, state, speaker = null, tag = null) {
+// tag: a place (suggest_place, arrive) or a topic (reply). Without a tag, tagged lines are skipped.
+// vars.word fills {word} in topic replies (always a word from brain/topics.js, never free text).
+export function pickLine(context, state, speaker = null, tag = null, vars = {}) {
   const fits = lines.filter((l) =>
     (!speaker || l.speaker === speaker) &&
     l.context === context &&
-    (!tag || l.tag === tag) &&
+    (tag ? l.tag === tag : !l.tag || l.context === 'arrive') &&
     (!l.mood || l.mood.includes(state.mood)) &&
     (!l.energy || (state.energy >= l.energy[0] && state.energy <= l.energy[1])));
   const fresh = fits.filter((l) => !recent.includes(l.id));
@@ -17,7 +19,8 @@ export function pickLine(context, state, speaker = null, tag = null) {
   if (!line) return null;
   recent.push(line.id);
   if (recent.length > RECENT_MAX) recent.shift();
-  return { ...line };   // { id, speaker, context, text, anim, choices?, tag? }
+  const text = line.text.replace(/\{word\}/g, vars.word || 'like this');
+  return { ...line, text };   // { id, speaker, context, text, anim, choices?, tag? }
 }
 
 export const allLines = () => lines;

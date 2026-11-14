@@ -1,5 +1,7 @@
 // Combines face, voice and words into { energy 1–5, mood, need, confidence }.
 // Face = hint, words = stronger signal, the user's own answer = truth.
+import { TOPICS, isNegativeTopic } from './topics.js';
+
 const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 let faceWindow = [];               // last 10 seconds of face samples (memory only)
 let lock = null;                   // user corrections win for 30 minutes
@@ -34,8 +36,9 @@ const WORDS = {
 };
 const has = (text, list) => list.some((w) => text.toLowerCase().includes(w));
 
-// Call with whatever is available: { text, valence, loudness }
-export function update({ text, valence, loudness } = {}) {
+// Call with whatever is available: { text, valence, loudness, topic }
+// topic (from brain/topics.js) is what the person said they feel — it outranks the sentiment model.
+export function update({ text, valence, loudness, topic } = {}) {
   if (lock && Date.now() < lock.until) return state;
 
   const energyVotes = [], moodVotes = [];         // [value, weight]
@@ -50,12 +53,17 @@ export function update({ text, valence, loudness } = {}) {
     energyVotes.push([1 + 4 * clamp(loudness * 8, 0, 1), 0.4]);
   }
   if (text) {                                      // WORDS — weight 0.7
+    const T = topic && TOPICS[topic];
+    // "I was really tired" must never read as cheerful, even if the sentiment model says POSITIVE.
+    if (T && isNegativeTopic(topic) && (valence == null || valence > T.valence)) valence = T.valence;
+    if (T && !isNegativeTopic(topic) && (valence == null || valence < 0.2)) valence = T.valence;
     if (valence != null) moodVotes.push([valence, 0.7]);
     if (has(text, WORDS.energyLow)) energyVotes.push([1.5, 0.7]);
     if (has(text, WORDS.energyHigh)) energyVotes.push([4.5, 0.7]);
     state.need = has(text, WORDS.needVent) ? 'vent'
       : has(text, WORDS.needDistract) ? 'distract'
         : has(text, WORDS.needRest) ? 'rest' : state.need;
+    if (T) state.need = T.need;
   }
 
   const wavg = (v) => v.reduce((a, [x, w]) => a + x * w, 0) / v.reduce((a, [, w]) => a + w, 0);
@@ -66,6 +74,7 @@ export function update({ text, valence, loudness } = {}) {
   }
   const totalWeight = [...energyVotes, ...moodVotes].reduce((a, [, w]) => a + w, 0);
   if (totalWeight) state.confidence = clamp(totalWeight / 2, 0, 1);
+  if (topic) state.confidence = Math.max(state.confidence, 0.8);   // they told us; no need to guess
 
   if (!text && energyVotes.length) state.need = state.energy <= 2 ? 'rest' : state.energy >= 4 ? 'distract' : 'company';
   emit();

@@ -26,14 +26,14 @@ i3,cat,indirect,,,,I want to sit somewhere. Where should we sit?,tilt,🛋️ So
 r1,cat,reply,heavy,,,That sounds really heavy. I'm right here.,lean,,
 r2,cat,reply,heavy,,,Thank you for telling me. You don't have to carry it all at once.,lean,,
 r3,cat,reply,heavy,,,That's a lot. Want to just breathe with me for a minute?,curl,Breathe with you=breathe|Keep talking=talk|Just sit=ok,
-r4,cat,reply,heavy,,,Mm. I'm listening with both ears. Both!,lean,,
+r4,cat,reply,heavy,,,I'm listening. Take all the time you need.,lean,,
 r5,cat,reply,low,,,That sounds tiring. It makes sense you feel this way.,lean,,
 r6,cat,reply,low,,,Grey days are real days. I'm glad you're here with me.,curl,,
 r7,cat,reply,low,,,Want to go somewhere calm together? I know a meadow.,tilt,Follow you 🐾=go:meadow|Stay here=ok,
 r8,cat,reply,low,,,Thanks for saying it out loud. That takes energy.,nod,,
 r9,cat,reply,neutral,,,"Mm-hm. Tell me more, if you like.",tilt,Tell you more 🎙️=talk|That's all=ok,
 r10,cat,reply,neutral,,,I see. My tail is listening too.,tilt,,
-r11,cat,reply,neutral,,,"Okay! I'll remember that for, um, at least five minutes.",wiggle,,
+r11,cat,reply,neutral,,,Mm-hm. I'm really glad you told me.,wiggle,,
 r12,cat,reply,neutral,,,Sounds like a regular kind of day. Those count too.,purr,,
 r13,cat,reply,light,,,That's nice to hear. My whiskers did a little wiggle.,wiggle,,
 r14,cat,reply,light,,,"Ooh, I like that. Tell me the best part?",perk,Tell you 🎙️=talk|Later=ok,
@@ -116,3 +116,35 @@ th3,cat,thanks,,,,Thanks. You know you best.,nod,,
 mi1,cat,missed,,,,"I didn't quite catch that. Try again, or type to me ⌨️",tilt,,
 mi2,cat,missed,,,,Mrrp? My ears missed it. Want to type instead? ⌨️,tilt,,
 wk1,cat,waking,,,,I'm still waking up my listening ears. You can type to me meanwhile ⌨️,curl,,
+rt1,cat,reply,,,,Really {word}… that sounds draining. You don't have to do anything right now.,curl,Rest with me 💤=rest|Tell you more 🎙️=talk,tired
+rt2,cat,reply,,,,"When you're this {word}, even small things take a lot. I'm glad you still came to see me.",lean,,tired
+rt3,cat,reply,,,,Let's make it a soft day. Want to lie in the meadow with me and do absolutely nothing?,curl,Rest in the meadow ☁️=go:meadow|Rest here 💤=rest,tired
+rt4,cat,reply,,,,"Being {word} is your body asking for kindness. Maybe a sip of water, then a rest?",lean,Rest with me 💤=rest|Water together 💧=tasks,tired
+rt5,cat,reply,,,,"I'll curl up right next to you. We can be {word} together, quietly.",curl,Rest with me 💤=rest|Tell you more 🎙️=talk,tired
+rs1,cat,reply,,,,I'm so sorry you're feeling {word}. I'm right here next to you.,lean,Tell you about it 🎙️=talk|Just sit with me=rest,sad
+rs2,cat,reply,,,,"That sounds really hard. Do you want to tell me what happened, or just sit together for a bit?",lean,Tell you 🎙️=talk|Sit together=rest,sad
+rs3,cat,reply,,,,Feeling {word} makes sense sometimes. You don't have to cheer up for me.,curl,,sad
+rs4,cat,reply,,,,I'm staying close. Want to listen to the waves with Old Turtle? He's very gentle.,lean,Go with you 🐢=go:beach|Stay here=rest,sad
+rl1,cat,reply,,,,"Feeling {word} really hurts. I'm glad you told me, and I'm here with you right now.",lean,,lonely
+rl2,cat,reply,,,,"You're not on your own in this moment. I'm right here, purring quietly next to you.",purr,Tell you more 🎙️=talk|Just stay=rest,lonely
+rl3,cat,reply,,,,Is there one person you could send a tiny 'hi' to later? Only if it feels okay.,tilt,Maybe later=ok|Tell you about it 🎙️=talk,lonely
+rl4,cat,reply,,,,Want some company at the beach? Old Turtle loves visitors.,lean,Visit Turtle 🐢=go:beach|Stay with you=rest,lonely
+rx1,cat,reply,,,,That sounds like a lot to carry at once. Want to breathe slowly with me for a minute?,lean,Breathe with you 🫁=breathe|Tell you more 🎙️=talk,stressed
+rx2,cat,reply,,,,"When everything feels {word}, it helps to put one thing down. Want to feed me that worry?",lean,Feed you the worry 😋=worry|Not right now=ok,stressed
+rx3,cat,reply,,,,You don't have to fix it all today. Let's just get through the next few minutes together.,curl,,stressed
+rx4,cat,reply,,,,"Being {word} is so tiring. Tell me the biggest part, if you want.",lean,Tell you 🎙️=talk|Breathe first 🫁=breathe,stressed
+ra1,cat,reply,,,,That sounds really frustrating. It's okay to feel {word}.,lean,Tell you what happened 🎙️=talk|Let it go for now=ok,angry
+ra2,cat,reply,,,,That would make my tail puff up too. Want to tell me what happened?,tilt,Tell you 🎙️=talk|Not now=ok,angry
+ra3,cat,reply,,,,Feeling {word} makes sense. Want to walk it off at the beach with me?,perk,Walk with you 🏖️=go:beach|Stay here=ok,angry
+ra4,cat,reply,,,,Let's take one slow breath before anything else. I'll do it with you.,curl,Breathe with you 🫁=breathe,angry
+rb1,cat,reply,,,,Bored? I know a beach with a very chatty turtle.,perk,Show me 🏖️=go:beach|Stay here=ok,bored
+rb2,cat,reply,,,,"Ooh, I have an idea: three tiny tasks, then a nap.",wiggle,Show me 🧶=tasks|Nah=ok,bored
+rb3,cat,reply,,,,Boredom is your brain asking for something new. Want to explore the meadow?,perk,Explore ☁️=go:meadow|Stay here=ok,bored
+rb4,cat,reply,,,,I could chase my tail for you. Or we could go exploring?,wiggle,"Exploring 🗺️=go:meadow|Tail, please=ok",bored
+rh1,cat,reply,,,,"Yay, that's so good to hear! Tell me the best part?",perk,Tell you 🎙️=talk|Later=ok,happy
+rh2,cat,reply,,,,That made my whiskers wiggle. I love hearing that.,wiggle,,happy
+rh3,cat,reply,,,,Look at you! Want to celebrate with a walk to the beach?,perk,Let's go 🏖️=go:beach|Stay cozy=ok,happy
+rh4,cat,reply,,,,"Happy you, happy cat. I'm purring very loudly.",purr,,happy
+rest1,cat,rest,,,,Okay. I'll curl up right here and keep you warm. 💤,curl,,
+rest2,cat,rest,,,,"Shh. Nothing to do now. Just rest, I'll stay close.",curl,,
+rest3,cat,rest,,,,Resting together. I won't ask you anything for a while.,curl,,

@@ -8,6 +8,7 @@ import { checkSafety } from './brain/safety.js';
 import { pickLine } from './brain/dialogue.js';
 import { startDirector, notNow, setQuiet, noteInteraction, directorStatus } from './brain/director.js';
 import { quickValence } from './brain/words.js';
+import { detectTopic, isNegativeTopic } from './brain/topics.js';
 import { showBubble, hideBubble, bubbleOpen, catThinking, setLoader, toast, openPanel, panelOpen, closePanel, setSenses, el } from './ui/hud.js';
 import { showHelp, helpOpen } from './ui/help.js';
 import { startOnboarding } from './ui/onboarding.js';
@@ -96,9 +97,14 @@ export async function hear(text, { valence = null, loudness = null, getValence =
   if (risk >= 2) { hideBubble(); return openHelp(risk); }
   if (valence == null && getValence) valence = await getValence();
   if (valence == null) valence = quickValence(text);
-  update({ text, valence, loudness });
+  const found = detectTopic(text);                      // what are they telling me about?
+  update({ text, valence, loudness, topic: found?.topic });
   remember();
-  const line = pickLine(risk === 1 ? 'gentle_check' : 'reply', state);
+  let line;
+  if (risk === 1) line = pickLine('gentle_check', state);
+  else if (found) line = pickLine('reply', state, 'cat', found.topic, { word: found.word });
+  if (!line) line = pickLine('reply', state, 'cat');
+  if (found && isNegativeTopic(found.topic) && found.topic !== 'bored') home()?.setPose(null);   // no zoomies right now
   say(line, { quote: text, chip: risk === 1, onChip: () => openHelp(1) });
   noteInteraction();
 }
@@ -187,6 +193,18 @@ export function openHelp(level) {
   });
 }
 
+/** "Rest with me": the cat curls up next to you and stays quiet for 10 minutes (no help panel, no questions). */
+let restTimer = 0;
+function restTogether() {
+  showScene('Home');
+  setQuiet(true);
+  home()?.setPose('rest');
+  sayCtx('rest');
+  clearTimeout(restTimer);
+  restTimer = setTimeout(() => { home()?.setPose(null); setQuiet(false); }, 10 * 60 * 1000);
+}
+game.events.on('listening', (on) => { if (on) { clearTimeout(restTimer); setQuiet(false); } });
+
 /** "Stay with me": the cat comes close and keeps you company for a few minutes. */
 let stayTimer = 0;
 function stayWithMe() {
@@ -210,6 +228,7 @@ export const effects = {
   ok: () => {},
   talk: () => { toast('Hold 🎙️ Talk (or tap it) and tell me ⌨️ works too'); talk.classList.add('rec'); setTimeout(() => !isRecording() && talk.classList.remove('rec'), 1200); },
   stay: () => stayWithMe(),
+  rest: () => restTogether(),
   turtle: () => { showScene('World'); world().visitNpc('turtle'); },
   reassure: () => sayCtx('reassure'),
 };

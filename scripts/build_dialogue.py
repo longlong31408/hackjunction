@@ -11,7 +11,8 @@ choices: "Label=effect|Label=effect". Effects can be chained with "+":
     confirm              accept the cat's current guess
     mood:<m> energy:<n> need:<n>   correct the cat's guess (user = truth)
     go:<place>           cat leads you there (beach, meadow, home)
-    talk breathe tasks worry stay turtle reassure ok help:<1-3>
+    talk breathe tasks worry stay rest turtle reassure ok help:<1-3>
+{word} in a topic reply (tag tired/sad/lonely/…) becomes the feeling word the person used.
 A "Not now" choice is added automatically by the app to every question.
 """
 import csv
@@ -28,7 +29,7 @@ MOODS = {"heavy", "low", "neutral", "light", "bright"}
 NEEDS = {"rest", "vent", "distract", "company"}
 PLACES = {"beach", "meadow", "home"}
 SPEAKERS = {"cat", "turtle", "sheep"}
-SIMPLE_EFFECTS = {"confirm", "talk", "breathe", "tasks", "worry", "stay", "turtle", "reassure", "ok"}
+SIMPLE_EFFECTS = {"confirm", "talk", "breathe", "tasks", "worry", "stay", "rest", "turtle", "reassure", "ok"}
 # Minimum content from the dev guide (section 7)
 MINIMUM = {"greeting": 15, "confirm": 6, "indirect": 3, "reply": 20, "gentle_check": 4,
            "suggest_place": 6, "turtle": 15, "task": 6, "goodbye": 3}
@@ -100,6 +101,13 @@ for ctx, n in PER_MOOD.items():
         have = sum(1 for l in rows if l["context"] == ctx and mood in l.get("mood", []))
         if have < n:
             errors.append(f"context '{ctx}': {have} lines for mood '{mood}', need {n}")
+REPLY_TOPICS = {"tired", "sad", "lonely", "stressed", "angry", "bored", "happy"}
+for topic in REPLY_TOPICS:
+    if sum(1 for l in rows if l["context"] == "reply" and l.get("tag") == topic) < 4:
+        errors.append(f"reply needs at least 4 lines tagged '{topic}'")
+for l in rows:
+    if "{word}" in l["text"] and l.get("tag") not in REPLY_TOPICS:
+        errors.append(f"{l['id']}: {{word}} only works in topic replies")
 for place in PLACES:
     if sum(1 for l in rows if l["context"] == "suggest_place" and l.get("tag") == place) < 2:
         errors.append(f"suggest_place needs 2 lines tagged '{place}'")
