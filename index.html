@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFC8A2" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Mochi" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+  <title>Mochi</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="game" aria-label="Mochi's world"></div>
+  <div id="tint" aria-hidden="true"></div>
+
+  <!-- HUD overlay -->
+  <header id="topbar">
+    <span id="catName">Mochi</span>
+    <span id="senses" title="Camera and microphone"><span id="camDot">📷</span><span id="micDot">🎙️</span></span>
+    <span class="spacer"></span>
+    <button id="settingsBtn" aria-label="Settings">⚙️</button>
+    <button id="pauseBtn" aria-label="Pause camera and mic">⏸️</button>
+    <button id="helpBtn" aria-label="Get help">🛟</button>
+  </header>
+
+  <div id="loader" hidden><span class="dots">💤</span> <span id="loaderText">Mochi is waking up…</span></div>
+
+  <div id="bubble" hidden aria-live="polite">
+    <p id="bubbleWho"></p>
+    <p id="bubbleText"></p>
+    <div id="bubbleChoices"></div>
+  </div>
+
+  <nav id="bottombar">
+    <button id="homeBtn" aria-label="Home">🏠</button>
+    <button id="mapBtn" aria-label="Map">🗺️</button>
+    <button id="talkBtn" aria-label="Hold to talk">🎙️ Talk</button>
+    <button id="typeBtn" aria-label="Type instead">⌨️</button>
+    <button id="tasksBtn" aria-label="Tiny tasks">🧶</button>
+  </nav>
+
+  <section id="helpPanel" hidden></section>
+  <section id="panel" hidden></section>
+  <section id="onboarding"></section>
+
+  <video id="cam" playsinline muted hidden></video>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

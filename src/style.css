@@ -1,0 +1,10 @@
+/* Mochi — palette from the README (§9) */
+@font-face { font-family: 'Nunito'; src: url('/fonts/Nunito.ttf') format('truetype'); font-weight: 200 1000; font-display: swap; }
+:root {
+  --cream: #FFF6E9; --peach: #FFC8A2; --mint: #BDE6CF; --lavender: #CFC4F2; --sky: #A9D6F5; --cocoa: #5B4636;
+  --font: 'Nunito', ui-rounded, 'Segoe UI', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--cream); color: var(--cocoa); font-family: var(--font); overflow: hidden; }
+#game { position: fixed; inset: 0; }
+[hidden] { display: none !important; }
