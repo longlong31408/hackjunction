@@ -14,8 +14,16 @@
 
 - **🐾 Mirrors your energy.** The cat has five looks, from asleep in a box with a blanket (1) to zoomies around the room (5).
 - **📷 Notices your face.** MediaPipe reads smile, frown, sad brows and eye openness about 3 times a second. A face is treated as a *hint*, never the truth.
-- **🎙️ Talk to the cat.** Hold (or tap) **Talk**, and Whisper turns your speech into text on the device. The cat answers with a fitting, pre-written line. **⌨️ Type** works too.
+- **🎙️ Talks like a good listener.** Hold (or tap) **Talk**, and Whisper turns your speech into text on the device. **⌨️ Type** works too. The cat answers the way trained helpers do: it reflects your feeling in your own word, validates it ("No wonder you're exhausted, with work like that"), and makes one next move. That's a single open question, a summary it checks with you, or a small activity. It never asks three questions in a row, and it notices when something comes back. The research behind this is in [docs/CONVERSATION_GUIDE.md](docs/CONVERSATION_GUIDE.md).
+- **💡 Suggests what fits you.** Ideas match your energy, mood, what you're dealing with and the time of day:
+  - rest and wind-down when you're exhausted
+  - 5-4-3-2-1 grounding or breathing when it's all too much
+  - Old Turtle or a message to a friend when you're lonely
+  - play, stretching or one good thing on lighter days
+
+  Afterwards the cat asks how you feel.
 - **💬 Asks first, gently.** The cat greets you, checks its guess ("You look a little sleepy… am I right?") or asks something playful ("Which blanket today?"). Your answer always wins, and **"Not now"** keeps it quiet for 15 minutes.
+- **🐈 Has a life of its own.** It wanders to the window, grooms, stretches, kneads, rolls over and pounces at the yarn basket. When you share something heavy, it comes close and stays soft.
 - **🗺️ "Follow me".** The cat leads you over the bridges to **Sleepy Meadow** (breathe with the clouds and the Cloud Sheep) or **Bottle Beach** (Old Turtle answers according to your mood).
 - **😋 Worry-eating cat.** Say or type a worry and the cat eats it. Nothing is kept.
 - **🧶 3 tiny tasks a day**, sized to your energy. Skipping always gets *"Rest counts too 💤"*. No streaks, no scores.
@@ -52,7 +60,8 @@ Open the printed **http://localhost:5173** in Chrome, Edge or Safari. Browsers a
 
 ### Things to try
 
-- Say *"I'm so tired today"*, then *"I feel great!"*, and watch the cat's energy look change.
+- Say *"I'm so tired today"*, then *"work has been a lot and I can't sleep"*, and see how the cat listens, summarises and suggests something. Say *"I feel great!"* and watch its energy look change.
+- Leave it alone for a minute and watch what the cat gets up to.
 - Tap **🗺️**, then **Follow you 🐾** when the cat suggests a place. Or tap Old Turtle and the Cloud Sheep yourself.
 - **Triple-tap the cat's name** for the hidden debug panel: energy and mood sliders plus live face numbers.
 
