@@ -16,6 +16,7 @@ import { initMic, startRecording, stopRecording, isRecording } from './sensing/m
 import { load, save } from './storage.js';
 import { installPrivacy, sensesPaused } from './ui/privacy.js';
 import { installFeatures } from './ui/features.js';
+import { installExtras } from './ui/extras.js';
 
 const $ = (id) => document.getElementById(id);
 export let saved = load();
@@ -320,6 +321,7 @@ export function begin() {
   startDirector((line) => say(line), () => bubbleOpen() || panelOpen() || helpOpen() || isRecording());
   installPrivacy({ startCamera, stopCamera, sayCtx, onSettingsChange: applySettings, settingsExtras: () => settingsExtras.flatMap((f) => f()) });
   installFeatures(app);
+  installExtras(app);
   game.events.emit('begin');
 }
 
@@ -338,7 +340,7 @@ export function reloadSaved() { saved = load(); return saved; }
 
 /** What feature modules get to use (keeps them free of circular imports). */
 export const app = {
-  say, sayCtx, home, world, showScene, currentScene, openHelp, openTypeBox, captureNextTalk, registerEffect, addSettings,
+  game, say, sayCtx, home, world, showScene, currentScene, openHelp, openTypeBox, captureNextTalk, registerEffect, addSettings,
   catName: () => saved.name, sound: null,
 };
 if (import.meta.env.DEV) window.mochi = { game, state, hear, say, openHelp, effects, aiStatus, runEffect };

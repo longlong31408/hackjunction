@@ -4,7 +4,7 @@ const KEY = 'mochi';
 const DEFAULTS = {
   name: 'Mochi',
   onboarded: false,
-  settings: { camera: true, mic: true, sound: true, music: false, reduceMotion: false, bigText: false, coat: 'cream', acc: 'none', time: null },
+  settings: { camera: true, mic: true, sound: true, music: true, reduceMotion: false, bigText: false, coat: 'cream', acc: 'none', time: null },
   last: { energy: 3, mood: 'neutral' },
 };
 
