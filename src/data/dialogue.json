@@ -1,0 +1,1433 @@
+[
+  {
+    "id": "g1",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Long day? We can just sit here for a bit.",
+    "anim": "curl",
+    "mood": [
+      "heavy"
+    ]
+  },
+  {
+    "id": "g2",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Hi. No need to say anything. I saved you the warm spot.",
+    "anim": "curl",
+    "mood": [
+      "heavy"
+    ]
+  },
+  {
+    "id": "g3",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "I'm really glad you came by. Want to be quiet together?",
+    "anim": "lean",
+    "mood": [
+      "heavy"
+    ],
+    "choices": [
+      {
+        "label": "Be quiet together",
+        "effect": "stay"
+      },
+      {
+        "label": "Talk a little",
+        "effect": "talk"
+      }
+    ]
+  },
+  {
+    "id": "g4",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Hey you. Feeling a little grey? I can be a fluffy cloud next to you.",
+    "anim": "lean",
+    "mood": [
+      "low"
+    ]
+  },
+  {
+    "id": "g5",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "I missed you. Slow day? Slow is allowed here.",
+    "anim": "curl",
+    "mood": [
+      "low"
+    ]
+  },
+  {
+    "id": "g6",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Mrrp. Want to tell me about it, or just sit?",
+    "anim": "tilt",
+    "mood": [
+      "low"
+    ],
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Just sit",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "g7",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Oh, hi! I was guarding this sunbeam for you.",
+    "anim": "purr",
+    "mood": [
+      "neutral"
+    ]
+  },
+  {
+    "id": "g8",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Welcome back. How's the inside of your head today?",
+    "anim": "tilt",
+    "mood": [
+      "neutral"
+    ],
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Just sit",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "g9",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Hello, hello. I knocked nothing off the table today. Proud of me?",
+    "anim": "wiggle",
+    "mood": [
+      "neutral"
+    ]
+  },
+  {
+    "id": "g10",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "You look a bit lighter today! Did something nice happen?",
+    "anim": "perk",
+    "mood": [
+      "light"
+    ],
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Just sit",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "g11",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Hi! My tail is doing the happy thing.",
+    "anim": "wiggle",
+    "mood": [
+      "light"
+    ]
+  },
+  {
+    "id": "g12",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Ooh, good vibes. Want to go exploring?",
+    "anim": "perk",
+    "mood": [
+      "light"
+    ],
+    "choices": [
+      {
+        "label": "Let's go 🐾",
+        "effect": "go:meadow"
+      },
+      {
+        "label": "Stay in",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "g13",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Ooh, you look like something good happened! Tell me?",
+    "anim": "zoom",
+    "mood": [
+      "bright"
+    ],
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Just sit",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "g14",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "You're glowing! I'm doing zoomies in your honour.",
+    "anim": "zoom",
+    "mood": [
+      "bright"
+    ]
+  },
+  {
+    "id": "g15",
+    "speaker": "cat",
+    "context": "greeting",
+    "text": "Big energy today! Shall we race to the beach?",
+    "anim": "zoom",
+    "mood": [
+      "bright"
+    ],
+    "choices": [
+      {
+        "label": "Race you 🏖️",
+        "effect": "go:beach"
+      },
+      {
+        "label": "Maybe later",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "c1",
+    "speaker": "cat",
+    "context": "confirm",
+    "text": "You look a little sleepy… am I right, or is my whisker-radar broken?",
+    "anim": "tilt",
+    "energy": [
+      1,
+      2
+    ],
+    "choices": [
+      {
+        "label": "Yes, sleepy",
+        "effect": "confirm"
+      },
+      {
+        "label": "No, I'm okay",
+        "effect": "energy:3+mood:neutral"
+      }
+    ]
+  },
+  {
+    "id": "c2",
+    "speaker": "cat",
+    "context": "confirm",
+    "text": "You seem tired and a bit heavy today. Did I guess right?",
+    "anim": "tilt",
+    "mood": [
+      "low",
+      "heavy"
+    ],
+    "energy": [
+      1,
+      3
+    ],
+    "choices": [
+      {
+        "label": "Yes",
+        "effect": "confirm"
+      },
+      {
+        "label": "Just tired",
+        "effect": "energy:2+mood:neutral"
+      },
+      {
+        "label": "Not really",
+        "effect": "energy:3+mood:neutral"
+      }
+    ]
+  },
+  {
+    "id": "c3",
+    "speaker": "cat",
+    "context": "confirm",
+    "text": "Your face looks a little cloudy. Is something weighing on you?",
+    "anim": "tilt",
+    "mood": [
+      "low",
+      "heavy"
+    ],
+    "energy": [
+      3,
+      5
+    ],
+    "choices": [
+      {
+        "label": "Yes",
+        "effect": "confirm"
+      },
+      {
+        "label": "A little",
+        "effect": "mood:low"
+      },
+      {
+        "label": "I'm fine",
+        "effect": "mood:neutral"
+      }
+    ]
+  },
+  {
+    "id": "c4",
+    "speaker": "cat",
+    "context": "confirm",
+    "text": "Is that a smile I spy? Good day so far?",
+    "anim": "perk",
+    "mood": [
+      "light",
+      "bright"
+    ],
+    "choices": [
+      {
+        "label": "Yes!",
+        "effect": "confirm"
+      },
+      {
+        "label": "It's mixed",
+        "effect": "mood:neutral"
+      },
+      {
+        "label": "Not really",
+        "effect": "mood:low"
+      }
+    ]
+  },
+  {
+    "id": "c5",
+    "speaker": "cat",
+    "context": "confirm",
+    "text": "You've got zoomie energy, I can tell! Right?",
+    "anim": "perk",
+    "energy": [
+      4,
+      5
+    ],
+    "choices": [
+      {
+        "label": "Yes",
+        "effect": "confirm"
+      },
+      {
+        "label": "Not really",
+        "effect": "energy:3"
+      }
+    ]
+  },
+  {
+    "id": "c6",
+    "speaker": "cat",
+    "context": "confirm",
+    "text": "I'm getting 'just okay' vibes. Am I close?",
+    "anim": "tilt",
+    "mood": [
+      "neutral"
+    ],
+    "energy": [
+      3,
+      3
+    ],
+    "choices": [
+      {
+        "label": "Spot on",
+        "effect": "confirm"
+      },
+      {
+        "label": "Lower than that",
+        "effect": "energy:2+mood:low"
+      },
+      {
+        "label": "Better than that",
+        "effect": "energy:4+mood:light"
+      }
+    ]
+  },
+  {
+    "id": "i1",
+    "speaker": "cat",
+    "context": "indirect",
+    "text": "I'm picking a blanket for today. Which one?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "☀️ Light & sunny",
+        "effect": "mood:light"
+      },
+      {
+        "label": "🌥️ Soft grey",
+        "effect": "mood:low"
+      },
+      {
+        "label": "🌧️ Heavy wool",
+        "effect": "mood:heavy"
+      }
+    ]
+  },
+  {
+    "id": "i2",
+    "speaker": "cat",
+    "context": "indirect",
+    "text": "How fast should I chase the laser today?",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "😴 Just watch it",
+        "effect": "energy:1"
+      },
+      {
+        "label": "🐌 Slowly",
+        "effect": "energy:2"
+      },
+      {
+        "label": "🐈 Normal",
+        "effect": "energy:3"
+      },
+      {
+        "label": "⚡ Zoomies!",
+        "effect": "energy:5"
+      }
+    ]
+  },
+  {
+    "id": "i3",
+    "speaker": "cat",
+    "context": "indirect",
+    "text": "I want to sit somewhere. Where should we sit?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "🛋️ Somewhere quiet",
+        "effect": "need:rest"
+      },
+      {
+        "label": "🪟 By the window",
+        "effect": "need:distract"
+      },
+      {
+        "label": "🫂 Right next to me",
+        "effect": "need:company"
+      },
+      {
+        "label": "👂 Where I can tell you stuff",
+        "effect": "need:vent"
+      }
+    ]
+  },
+  {
+    "id": "r1",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That sounds really heavy. I'm right here.",
+    "anim": "lean",
+    "mood": [
+      "heavy"
+    ]
+  },
+  {
+    "id": "r2",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Thank you for telling me. You don't have to carry it all at once.",
+    "anim": "lean",
+    "mood": [
+      "heavy"
+    ]
+  },
+  {
+    "id": "r3",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That's a lot. Want to just breathe with me for a minute?",
+    "anim": "curl",
+    "mood": [
+      "heavy"
+    ],
+    "choices": [
+      {
+        "label": "Breathe with you",
+        "effect": "breathe"
+      },
+      {
+        "label": "Keep talking",
+        "effect": "talk"
+      },
+      {
+        "label": "Just sit",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "r4",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Mm. I'm listening with both ears. Both!",
+    "anim": "lean",
+    "mood": [
+      "heavy"
+    ]
+  },
+  {
+    "id": "r5",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That sounds tiring. It makes sense you feel this way.",
+    "anim": "lean",
+    "mood": [
+      "low"
+    ]
+  },
+  {
+    "id": "r6",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Grey days are real days. I'm glad you're here with me.",
+    "anim": "curl",
+    "mood": [
+      "low"
+    ]
+  },
+  {
+    "id": "r7",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Want to go somewhere calm together? I know a meadow.",
+    "anim": "tilt",
+    "mood": [
+      "low"
+    ],
+    "choices": [
+      {
+        "label": "Follow you 🐾",
+        "effect": "go:meadow"
+      },
+      {
+        "label": "Stay here",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "r8",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Thanks for saying it out loud. That takes energy.",
+    "anim": "nod",
+    "mood": [
+      "low"
+    ]
+  },
+  {
+    "id": "r9",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Mm-hm. Tell me more, if you like.",
+    "anim": "tilt",
+    "mood": [
+      "neutral"
+    ],
+    "choices": [
+      {
+        "label": "Tell you more 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "That's all",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "r10",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "I see. My tail is listening too.",
+    "anim": "tilt",
+    "mood": [
+      "neutral"
+    ]
+  },
+  {
+    "id": "r11",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Okay! I'll remember that for, um, at least five minutes.",
+    "anim": "wiggle",
+    "mood": [
+      "neutral"
+    ]
+  },
+  {
+    "id": "r12",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Sounds like a regular kind of day. Those count too.",
+    "anim": "purr",
+    "mood": [
+      "neutral"
+    ]
+  },
+  {
+    "id": "r13",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That's nice to hear. My whiskers did a little wiggle.",
+    "anim": "wiggle",
+    "mood": [
+      "light"
+    ]
+  },
+  {
+    "id": "r14",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Ooh, I like that. Tell me the best part?",
+    "anim": "perk",
+    "mood": [
+      "light"
+    ],
+    "choices": [
+      {
+        "label": "Tell you 🎙️",
+        "effect": "talk"
+      },
+      {
+        "label": "Later",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "r15",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Look at you! Want to celebrate with a walk to the beach?",
+    "anim": "perk",
+    "mood": [
+      "light"
+    ],
+    "choices": [
+      {
+        "label": "Let's go 🏖️",
+        "effect": "go:beach"
+      },
+      {
+        "label": "Stay here",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "r16",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "That made my ears stand right up.",
+    "anim": "perk",
+    "mood": [
+      "light"
+    ]
+  },
+  {
+    "id": "r17",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Yay! That's the best thing I've heard all day.",
+    "anim": "zoom",
+    "mood": [
+      "bright"
+    ]
+  },
+  {
+    "id": "r18",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "Zoomies! Sorry, I'm just very happy for you.",
+    "anim": "zoom",
+    "mood": [
+      "bright"
+    ]
+  },
+  {
+    "id": "r19",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "You sound so bright. Let's go explore!",
+    "anim": "zoom",
+    "mood": [
+      "bright"
+    ],
+    "choices": [
+      {
+        "label": "Explore 🗺️",
+        "effect": "go:beach"
+      },
+      {
+        "label": "Stay cozy",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "r20",
+    "speaker": "cat",
+    "context": "reply",
+    "text": "I'm purring so loud the neighbours can hear.",
+    "anim": "purr",
+    "mood": [
+      "bright"
+    ]
+  },
+  {
+    "id": "gc1",
+    "speaker": "cat",
+    "context": "gentle_check",
+    "text": "That sounds really heavy. Are you having thoughts of hurting yourself?",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Yes",
+        "effect": "help:2"
+      },
+      {
+        "label": "I'm not sure",
+        "effect": "help:2"
+      },
+      {
+        "label": "No",
+        "effect": "reassure"
+      }
+    ]
+  },
+  {
+    "id": "gc2",
+    "speaker": "cat",
+    "context": "gentle_check",
+    "text": "Thank you for telling me. Can I ask: are you thinking about hurting yourself?",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Yes",
+        "effect": "help:2"
+      },
+      {
+        "label": "I'm not sure",
+        "effect": "help:2"
+      },
+      {
+        "label": "No",
+        "effect": "reassure"
+      }
+    ]
+  },
+  {
+    "id": "gc3",
+    "speaker": "cat",
+    "context": "gentle_check",
+    "text": "I'm staying right here with you. Are you having thoughts of not wanting to be alive?",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Yes",
+        "effect": "help:2"
+      },
+      {
+        "label": "I'm not sure",
+        "effect": "help:2"
+      },
+      {
+        "label": "No",
+        "effect": "reassure"
+      }
+    ]
+  },
+  {
+    "id": "gc4",
+    "speaker": "cat",
+    "context": "gentle_check",
+    "text": "That sounds painful. Are you safe right now?",
+    "anim": "lean",
+    "choices": [
+      {
+        "label": "Yes, I'm safe",
+        "effect": "reassure"
+      },
+      {
+        "label": "I'm not sure",
+        "effect": "help:2"
+      },
+      {
+        "label": "No",
+        "effect": "help:3"
+      }
+    ]
+  },
+  {
+    "id": "re1",
+    "speaker": "cat",
+    "context": "reassure",
+    "text": "Okay. Thank you for answering. I'm here, and the 🛟 up top is always there if you need it.",
+    "anim": "lean"
+  },
+  {
+    "id": "re2",
+    "speaker": "cat",
+    "context": "reassure",
+    "text": "Thank you for telling me. I'll stay close. The 🛟 button is there any time.",
+    "anim": "curl"
+  },
+  {
+    "id": "s1",
+    "speaker": "cat",
+    "context": "suggest_place",
+    "text": "There's a sleepy meadow where the clouds move slowly. Want to come?",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "Follow you 🐾",
+        "effect": "go:meadow"
+      }
+    ],
+    "tag": "meadow"
+  },
+  {
+    "id": "s2",
+    "speaker": "cat",
+    "context": "suggest_place",
+    "text": "I know a soft patch of grass that's perfect for doing nothing. Come with me?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Follow you 🐾",
+        "effect": "go:meadow"
+      }
+    ],
+    "tag": "meadow"
+  },
+  {
+    "id": "s3",
+    "speaker": "cat",
+    "context": "suggest_place",
+    "text": "The waves are doing their whooshing thing. Want to go listen with me?",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "Follow you 🐾",
+        "effect": "go:beach"
+      }
+    ],
+    "tag": "beach"
+  },
+  {
+    "id": "s4",
+    "speaker": "cat",
+    "context": "suggest_place",
+    "text": "Old Turtle is at the beach. He's a very good listener. Want to visit?",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Visit Turtle 🐢",
+        "effect": "go:beach"
+      }
+    ],
+    "tag": "beach"
+  },
+  {
+    "id": "s5",
+    "speaker": "cat",
+    "context": "suggest_place",
+    "text": "Want to stay in the cozy room with me for a bit?",
+    "anim": "curl",
+    "choices": [
+      {
+        "label": "Stay with you 🏠",
+        "effect": "go:home"
+      }
+    ],
+    "tag": "home"
+  },
+  {
+    "id": "s6",
+    "speaker": "cat",
+    "context": "suggest_place",
+    "text": "I found a sunbeam on the rug. Want to share it?",
+    "anim": "purr",
+    "choices": [
+      {
+        "label": "Share the sunbeam ☀️",
+        "effect": "go:home"
+      }
+    ],
+    "tag": "home"
+  },
+  {
+    "id": "a1",
+    "speaker": "cat",
+    "context": "arrive",
+    "text": "Here we are. Lie down with me and watch the clouds?",
+    "anim": "curl",
+    "choices": [
+      {
+        "label": "Breathe with the clouds ☁️",
+        "effect": "breathe"
+      },
+      {
+        "label": "Just look around",
+        "effect": "ok"
+      }
+    ],
+    "tag": "meadow"
+  },
+  {
+    "id": "a2",
+    "speaker": "cat",
+    "context": "arrive",
+    "text": "Listen… whoosh… whoosh. Old Turtle is just over there.",
+    "anim": "perk",
+    "choices": [
+      {
+        "label": "Say hi to Turtle 🐢",
+        "effect": "turtle"
+      },
+      {
+        "label": "Look around",
+        "effect": "ok"
+      }
+    ],
+    "tag": "beach"
+  },
+  {
+    "id": "a3",
+    "speaker": "cat",
+    "context": "arrive",
+    "text": "Home sweet home. The rug is still warm.",
+    "anim": "purr",
+    "tag": "home"
+  },
+  {
+    "id": "t1",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Slow down… the waves aren't in a hurry. Neither are we.",
+    "anim": "nod",
+    "mood": [
+      "heavy"
+    ]
+  },
+  {
+    "id": "t2",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "I've carried my house on my back for ninety years. Some days it's heavy. We rest then.",
+    "anim": "nod",
+    "mood": [
+      "heavy"
+    ]
+  },
+  {
+    "id": "t3",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Sit with me. You don't need to explain anything to the sea.",
+    "anim": "nod",
+    "mood": [
+      "heavy"
+    ]
+  },
+  {
+    "id": "t4",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Ah, a grey-sky day. The tide is moving slowly today too.",
+    "anim": "nod",
+    "mood": [
+      "low"
+    ]
+  },
+  {
+    "id": "t5",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Hello, little one. Watch the waves with me for a bit?",
+    "anim": "nod",
+    "mood": [
+      "low"
+    ]
+  },
+  {
+    "id": "t6",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Even I need three naps on a day like this. Maybe four.",
+    "anim": "nod",
+    "mood": [
+      "low"
+    ]
+  },
+  {
+    "id": "t7",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Afternoon. The shells are particularly shiny today. I checked.",
+    "anim": "nod",
+    "mood": [
+      "neutral"
+    ]
+  },
+  {
+    "id": "t8",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Hmm. A calm sea, a calm turtle. Want to count the waves?",
+    "anim": "nod",
+    "mood": [
+      "neutral"
+    ]
+  },
+  {
+    "id": "t9",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Your cat told me you'd come. Cats tell turtles everything.",
+    "anim": "nod",
+    "mood": [
+      "neutral"
+    ]
+  },
+  {
+    "id": "t10",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Oh, you're smiling. The sea likes that.",
+    "anim": "nod",
+    "mood": [
+      "light"
+    ]
+  },
+  {
+    "id": "t11",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "A good day! I'll do my fastest walk in your honour. Give me a minute. Or ten.",
+    "anim": "nod",
+    "mood": [
+      "light"
+    ]
+  },
+  {
+    "id": "t12",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Bring me a nice shell sometime? I collect them. Slowly.",
+    "anim": "nod",
+    "mood": [
+      "light"
+    ]
+  },
+  {
+    "id": "t13",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "My, my, such sunshine! You're making the seagulls jealous.",
+    "anim": "nod",
+    "mood": [
+      "bright"
+    ]
+  },
+  {
+    "id": "t14",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "When I was young I raced a crab. Today you'd win.",
+    "anim": "nod",
+    "mood": [
+      "bright"
+    ]
+  },
+  {
+    "id": "t15",
+    "speaker": "turtle",
+    "context": "turtle",
+    "text": "Joy looks good on you. Go splash a wave for me.",
+    "anim": "nod",
+    "mood": [
+      "bright"
+    ]
+  },
+  {
+    "id": "sh1",
+    "speaker": "sheep",
+    "context": "sheep",
+    "text": "Baaa… I'm made of cloud. Breathe in when I puff up?",
+    "anim": "nod",
+    "choices": [
+      {
+        "label": "Breathe with you ☁️",
+        "effect": "breathe"
+      }
+    ]
+  },
+  {
+    "id": "sh2",
+    "speaker": "sheep",
+    "context": "sheep",
+    "text": "I float when I'm calm. Want to float a little with me?",
+    "anim": "nod",
+    "choices": [
+      {
+        "label": "Float together ☁️",
+        "effect": "breathe"
+      }
+    ]
+  },
+  {
+    "id": "sh3",
+    "speaker": "sheep",
+    "context": "sheep",
+    "text": "Shhh. The meadow is napping. You can nap too.",
+    "anim": "nod"
+  },
+  {
+    "id": "sh4",
+    "speaker": "sheep",
+    "context": "sheep",
+    "text": "I count myself to fall asleep. I got to one.",
+    "anim": "nod"
+  },
+  {
+    "id": "sh5",
+    "speaker": "sheep",
+    "context": "sheep",
+    "text": "Every cloud is just a sheep that's resting. Resting is allowed.",
+    "anim": "nod"
+  },
+  {
+    "id": "tk1",
+    "speaker": "cat",
+    "context": "task",
+    "text": "Want to do one tiny thing with me? Totally fine if not.",
+    "anim": "tilt",
+    "energy": [
+      1,
+      2
+    ],
+    "choices": [
+      {
+        "label": "Show me 🧶",
+        "effect": "tasks"
+      },
+      {
+        "label": "Not today",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "tk2",
+    "speaker": "cat",
+    "context": "task",
+    "text": "I picked some very small tasks. Like, kitten-sized.",
+    "anim": "perk",
+    "energy": [
+      1,
+      3
+    ],
+    "choices": [
+      {
+        "label": "Show me 🧶",
+        "effect": "tasks"
+      },
+      {
+        "label": "Not today",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "tk3",
+    "speaker": "cat",
+    "context": "task",
+    "text": "Water break? I'll drink with you. Mostly I'll stare at the glass.",
+    "anim": "wiggle",
+    "energy": [
+      1,
+      3
+    ],
+    "choices": [
+      {
+        "label": "Show me 🧶",
+        "effect": "tasks"
+      },
+      {
+        "label": "Not today",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "tk4",
+    "speaker": "cat",
+    "context": "task",
+    "text": "Got a little energy? I have a tiny mission for us.",
+    "anim": "perk",
+    "energy": [
+      3,
+      5
+    ],
+    "choices": [
+      {
+        "label": "Show me 🧶",
+        "effect": "tasks"
+      },
+      {
+        "label": "Not today",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "tk5",
+    "speaker": "cat",
+    "context": "task",
+    "text": "Want to do something small together? Then we nap.",
+    "anim": "tilt",
+    "choices": [
+      {
+        "label": "Show me 🧶",
+        "effect": "tasks"
+      },
+      {
+        "label": "Not today",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "tk6",
+    "speaker": "cat",
+    "context": "task",
+    "text": "I made a list of three easy things. Skipping is allowed. I skip things all the time.",
+    "anim": "wiggle",
+    "choices": [
+      {
+        "label": "Show me 🧶",
+        "effect": "tasks"
+      },
+      {
+        "label": "Not today",
+        "effect": "ok"
+      }
+    ]
+  },
+  {
+    "id": "td1",
+    "speaker": "cat",
+    "context": "task_done",
+    "text": "You did it! I'm doing a proud little wiggle.",
+    "anim": "wiggle"
+  },
+  {
+    "id": "td2",
+    "speaker": "cat",
+    "context": "task_done",
+    "text": "Tiny things are real things. Well done.",
+    "anim": "purr"
+  },
+  {
+    "id": "td3",
+    "speaker": "cat",
+    "context": "task_done",
+    "text": "Look at you go. Gently, but go.",
+    "anim": "perk"
+  },
+  {
+    "id": "ts1",
+    "speaker": "cat",
+    "context": "task_skip",
+    "text": "Rest counts too 💤",
+    "anim": "curl"
+  },
+  {
+    "id": "ts2",
+    "speaker": "cat",
+    "context": "task_skip",
+    "text": "Skipping is allowed. I'll curl up next to you instead.",
+    "anim": "curl"
+  },
+  {
+    "id": "ts3",
+    "speaker": "cat",
+    "context": "task_skip",
+    "text": "No problem at all. The task will survive without us.",
+    "anim": "curl"
+  },
+  {
+    "id": "bye1",
+    "speaker": "cat",
+    "context": "goodbye",
+    "text": "Okay, I'll close my eyes too. Wake me whenever.",
+    "anim": "curl"
+  },
+  {
+    "id": "bye2",
+    "speaker": "cat",
+    "context": "goodbye",
+    "text": "See you soon. I'll keep the blanket warm.",
+    "anim": "curl"
+  },
+  {
+    "id": "bye3",
+    "speaker": "cat",
+    "context": "goodbye",
+    "text": "Bye for now. I'll be right here, probably napping.",
+    "anim": "curl"
+  },
+  {
+    "id": "nn1",
+    "speaker": "cat",
+    "context": "notnow",
+    "text": "Okay! I'll be quiet for a while. 🤫",
+    "anim": "curl"
+  },
+  {
+    "id": "nn2",
+    "speaker": "cat",
+    "context": "notnow",
+    "text": "Got it. No more questions for now. Just purring.",
+    "anim": "purr"
+  },
+  {
+    "id": "p1",
+    "speaker": "cat",
+    "context": "pet",
+    "text": "Purrrrr.",
+    "anim": "purr"
+  },
+  {
+    "id": "p2",
+    "speaker": "cat",
+    "context": "pet",
+    "text": "*slow blink* That means I like you a lot.",
+    "anim": "purr"
+  },
+  {
+    "id": "p3",
+    "speaker": "cat",
+    "context": "pet",
+    "text": "Again! Again!",
+    "anim": "wiggle"
+  },
+  {
+    "id": "p4",
+    "speaker": "cat",
+    "context": "pet",
+    "text": "Mrrp?",
+    "anim": "tilt"
+  },
+  {
+    "id": "p5",
+    "speaker": "cat",
+    "context": "pet",
+    "text": "You found the perfect spot behind my ear.",
+    "anim": "purr"
+  },
+  {
+    "id": "w0",
+    "speaker": "cat",
+    "context": "worry_ask",
+    "text": "Tell me a worry and I'll eat it. I'm very hungry for worries.",
+    "anim": "perk"
+  },
+  {
+    "id": "w1",
+    "speaker": "cat",
+    "context": "worry_eaten",
+    "text": "Nom. That one's gone now, at least for a while.",
+    "anim": "wiggle"
+  },
+  {
+    "id": "w2",
+    "speaker": "cat",
+    "context": "worry_eaten",
+    "text": "Crunchy. I'll take care of that one. You can put it down.",
+    "anim": "purr"
+  },
+  {
+    "id": "w3",
+    "speaker": "cat",
+    "context": "worry_eaten",
+    "text": "Swallowed it whole. Nothing saved, nothing kept.",
+    "anim": "wiggle"
+  },
+  {
+    "id": "st1",
+    "speaker": "cat",
+    "context": "stay",
+    "text": "I'm right here. Let's breathe slowly together.",
+    "anim": "curl"
+  },
+  {
+    "id": "st2",
+    "speaker": "cat",
+    "context": "stay",
+    "text": "You don't have to do anything. I'm staying.",
+    "anim": "curl"
+  },
+  {
+    "id": "st3",
+    "speaker": "cat",
+    "context": "stay",
+    "text": "Feel your feet on the floor. I'm right next to you.",
+    "anim": "lean"
+  },
+  {
+    "id": "st4",
+    "speaker": "cat",
+    "context": "stay",
+    "text": "We can just be quiet. I'm not going anywhere.",
+    "anim": "curl"
+  },
+  {
+    "id": "cm1",
+    "speaker": "cat",
+    "context": "couch",
+    "text": "I'll go for a wander. You can just watch.",
+    "anim": "perk"
+  },
+  {
+    "id": "cm2",
+    "speaker": "cat",
+    "context": "couch",
+    "text": "Sit back. I'll show you around.",
+    "anim": "perk"
+  }
+]

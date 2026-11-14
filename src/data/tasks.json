@@ -1,0 +1,18 @@
+[
+  { "id": "water", "energy": [1, 1], "text": "Drink a glass of water with me 💧" },
+  { "id": "breaths", "energy": [1, 2], "text": "Take three slow breaths. I'll do them too 🫧" },
+  { "id": "comfy", "energy": [1, 2], "text": "Change into something comfy 🧦" },
+  { "id": "song", "energy": [1, 3], "text": "Put on one song you like 🎵" },
+  { "id": "window", "energy": [2, 2], "text": "Open a window for one minute 🪟" },
+  { "id": "snack", "energy": [2, 3], "text": "Have a small snack — anything counts 🍪" },
+  { "id": "stretch", "energy": [2, 3], "text": "Stretch your arms up high, like me 🙆" },
+  { "id": "eat", "energy": [3, 3], "text": "Eat something — anything counts 🍙" },
+  { "id": "daylight", "energy": [3, 4], "text": "Step outside for two minutes of daylight ☀️" },
+  { "id": "tidy", "energy": [3, 4], "text": "Tidy one small spot. Just one! 🧺" },
+  { "id": "walk", "energy": [4, 4], "text": "Take a 5-minute walk. Bring me a postcard? 🏞️" },
+  { "id": "meal", "energy": [4, 5], "text": "Make a simple meal for yourself 🥪" },
+  { "id": "okay", "energy": [3, 5], "text": "Write down one thing that went okay today ✏️" },
+  { "id": "thinking", "energy": [5, 5], "text": "Send a 'thinking of you' to someone 💌" },
+  { "id": "dance", "energy": [5, 5], "text": "Dance to one song (badly is best) 💃" },
+  { "id": "plan", "energy": [4, 5], "text": "Plan one small nice thing for tomorrow 🗓️" }
+]

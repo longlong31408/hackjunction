@@ -1,0 +1,20 @@
+{
+  "country": "FI",
+  "emergency": { "name": "Emergency number", "phone": "112" },
+  "lines": [
+    { "name": "MIELI Crisis Helpline (Finnish, 24/7)", "phone": "09 2525 0111" },
+    { "name": "MIELI Crisis Helpline (Swedish)", "phone": "09 2525 0112", "hours": "Mon & Wed 16–20, Tue, Thu & Fri 9–13" },
+    { "name": "Medical Helpline (non-urgent, 24/7)", "phone": "116 117" },
+    { "name": "MIELI support in English (chat & appointments)", "url": "https://mieli.fi/en" }
+  ],
+  "youth": [
+    { "name": "MLL Child and Youth Helpline (under 21)", "phone": "116 111", "hours": "Limited hours — see mll.fi" },
+    { "name": "Sekasin chat (ages 12–29, anonymous)", "url": "https://sekasin247.fi" }
+  ],
+  "elsewhere": { "name": "Outside Finland: find a free helpline", "url": "https://findahelpline.com" },
+  "sources": ["https://www.infofinland.fi/health/mental-health",
+              "https://mieli.fi/tukea-ja-apua/kriisipuhelin/",
+              "https://116117.fi/en",
+              "https://www.hel.fi/en/news/you-are-not-alone-support-for-children-and-young-people-in-helsinki"],
+  "lastVerified": "2026-11-14"
+}

@@ -1,0 +1,12 @@
+{
+  "urgent":  ["kill myself", "killing myself", "end my life", "going to end it", "end it all", "take my own life",
+              "suicide", "suicidal", "overdose"],
+  "high":    ["want to die", "wanna die", "wish i was dead", "wish i were dead", "wish i wouldn't wake up",
+              "hurt myself", "hurting myself", "harm myself", "self harm", "cut myself", "cutting myself",
+              "don't want to be here anymore", "don't want to live", "no reason to live", "better off dead",
+              "can't go on"],
+  "concern": ["what's the point", "no point", "hopeless", "better off without me", "i'm a burden",
+              "worthless", "hate myself", "nobody cares", "can't do this anymore", "i give up", "empty inside"],
+  "ignore":  ["killing me", "dying to", "dead tired", "to die for", "killed it", "dying of laughter",
+              "kill for a", "i could die laughing"]
+}
